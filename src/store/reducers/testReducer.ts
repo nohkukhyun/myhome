@@ -1,11 +1,13 @@
 type testTyoe = {
-  msg: string;
-};
+  msg: string
+}
 
 const initialState: testTyoe = {
-  msg: "",
-};
+  msg: "hello",
+}
 
-const testReducer = () => {};
+const testReducer = () => {
+  return true
+}
 
-export default testReducer;
+export default testReducer
