@@ -1,9 +1,10 @@
-import axios from "axios"
-import { GithubProfile } from "./dto"
+import axios from "axios";
+import { GithubInfo } from "./dto";
 
-export async function getUserProfile(username: string) {
-  const res = await axios.get<GithubProfile>(
+export async function getUserInfo(username: string) {
+  const res = await axios.get<GithubInfo>(
     `https://api.github.com/users/${username}`
-  )
-  return res.data
+  );
+  console.log({ res });
+  return res.data;
 }
