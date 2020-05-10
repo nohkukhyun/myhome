@@ -4,9 +4,15 @@ import { GithubInfo } from "../../../utils/api/dto";
 import { call, put, takeEvery } from "redux-saga/effects";
 
 function* getUserInfoSaga(action: any) {
+  const { payload } = action;
+  if (!payload) return;
+
   try {
-    const userInfo: GithubInfo = yield call(getUserInfo, action.payload);
+    //api call
+    const userInfo: GithubInfo = yield call(getUserInfo, payload);
     console.log({ userInfo });
+
+    //store에 프로필 저장
     yield put(getUserInfoAsync.success(userInfo));
   } catch (e) {
     yield put(getUserInfoAsync.failure(e));

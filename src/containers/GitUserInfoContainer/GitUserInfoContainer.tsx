@@ -11,10 +11,11 @@ function GitUserInfoContainer() {
   );
 
   const handleSearchName = (username: string) => {
+    console.log({ username });
     dispatch(getUserInfoAsync.request(username));
   };
 
-  console.log({ data, loading });
+  console.log({ loading, data, error });
 
   return (
     <>
