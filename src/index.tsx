@@ -4,6 +4,7 @@ import "./index.css";
 import App from "./App";
 import { Provider } from "react-redux";
 import configureStore from "./store/configureStore";
+import Root from "./routes";
 
 //b421e26b5b47ab08ae124ce3cb3ef60eab14c37b  github api key
 const store = configureStore();
