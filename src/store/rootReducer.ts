@@ -1,10 +1,12 @@
 import { combineReducers } from "redux";
 import testReducer from "./github/reducers/testReducer";
 import github from "./github/reducers/githubReducer";
+import movies from "./movie/reducers/movie.reducer";
 
 const rootReducer = combineReducers({
   testReducer,
   github,
+  movies,
 });
 
 export default rootReducer;

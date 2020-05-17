@@ -3,7 +3,6 @@ import { useSelector, useDispatch } from "react-redux";
 import { RootState } from "../../store/rootReducer";
 import { getUserInfoAsync } from "../../store/github/actions/githubAction";
 import GitUserFormWrap from "../../components/GithubAllComponents/GitUserFormWrap";
-import UserInfoList from "../../components/GithubAllComponents/userinfolist";
 
 function GitUserInfoContainer() {
   const dispatch = useDispatch();
