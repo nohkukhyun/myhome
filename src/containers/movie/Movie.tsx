@@ -9,7 +9,6 @@ function Movie() {
 
   useEffect(() => {
     dispatch(getMovieAsyncAction.request(""));
-    console.log({ list });
   }, [dispatch, list]);
 
   return <div>{list}</div>;

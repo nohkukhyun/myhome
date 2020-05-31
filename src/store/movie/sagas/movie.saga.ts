@@ -4,11 +4,9 @@ import { movieDto } from "../types";
 import { call, put, takeEvery } from "redux-saga/effects";
 
 function* getMovieSaga(action: any) {
-  const { payload } = action;
-
   try {
     //api call
-    const movieLists: movieDto = yield call(payload);
+    const movieLists: movieDto = yield call(movieApi);
     console.log({ movieLists });
     //store저장
     yield put(getMovieAsyncAction.success(movieLists));
