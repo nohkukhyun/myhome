@@ -1,21 +1,16 @@
 export interface movieDto {
-  // poster_path: string | null;
-  // adult: boolean | null;
-  // overview: string | null;
-  // release_date: string | null;
-  // genre_ids: Array<number> | null;
-  // id: number | null;
-  // original_title: string | null;
-  // original_language: string | null;
-  // title: string | null;
-  // backdrop_path: string | null;
-  // popularity: number | null;
-  // vote_count: number;
-  // video: boolean;
-  // vote_average: number;
-  dates: {};
-  page: number;
-  results: Array<number>;
-  total_pages: number;
-  total_results: number;
+  popularity: number;
+  vote_count: number;
+  video: boolean;
+  poster_path: string;
+  id: number;
+  adult: boolean;
+  backdrop_path: string;
+  original_language: string;
+  original_title: string;
+  genre_ids: [];
+  title: string;
+  vote_average: number;
+  overview: string;
+  release_date: string;
 }

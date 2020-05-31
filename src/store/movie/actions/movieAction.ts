@@ -10,4 +10,4 @@ export const getMovieAsyncAction = createAsyncAction(
   GET_MOVIE,
   GET_MOVIE_SUCCESS,
   GET_MOVIE_FAILURE
-)<"", movieDto, AxiosError>();
+)<"", any, AxiosError>();
