@@ -1,30 +1,30 @@
-import React, { useEffect } from "react"
-import { useDispatch, useSelector } from "react-redux"
-import { getMovieAsyncAction } from "../../store/movie/actions/movieAction"
-import { RootState } from "../../store/rootReducer"
-import { movieDto } from "../../store/movie/types"
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { getMovieAsyncAction } from "../../store/movie/actions/movieAction";
+import { RootState } from "../../store/rootReducer";
+import { movieDto } from "../../store/movie/types";
 
 export interface type {}
 
 function Movie() {
-  const dispatch = useDispatch()
-  const { list } = useSelector((state: RootState) => state.movies.movie)
+  const dispatch = useDispatch();
+  const { list } = useSelector((state: RootState) => state.movies.movie);
 
   useEffect(() => {
-    dispatch(getMovieAsyncAction.request(""))
-  }, [dispatch])
-
-  useEffect(() => {
-    console.log({ list })
-  })
+    dispatch(getMovieAsyncAction.request(""));
+  }, [dispatch]);
 
   return (
     <div>
       <div>
-        <ul></ul>
+        <ul>
+          {list?.map((data: movieDto, i) => {
+            return <li>{data.title}</li>;
+          })}
+        </ul>
       </div>
     </div>
-  )
+  );
 }
 
-export default Movie
+export default Movie;
