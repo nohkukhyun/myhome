@@ -1,4 +1,4 @@
-import { GithubInfo } from "../../../store/github/types/dto"
+import { GithubInfo } from "../types/dto"
 import { createAsyncAction } from "typesafe-actions"
 import { AxiosError } from "axios"
 

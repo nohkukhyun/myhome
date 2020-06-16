@@ -1,6 +1,6 @@
 import * as actions from "../actions/githubAction"
 import { ActionType } from "typesafe-actions"
-import { GithubInfo } from "../../github/types/dto"
+import { GithubInfo } from "../types/dto"
 
 export type GithubAction = ActionType<typeof actions>
 export type GithubState = {

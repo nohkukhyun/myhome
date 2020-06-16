@@ -1,20 +1,20 @@
-import { createReducer, ActionType } from "typesafe-actions";
+import { createReducer, ActionType } from "typesafe-actions"
 import {
   GET_MOVIE,
   GET_MOVIE_FAILURE,
   GET_MOVIE_SUCCESS,
-} from "../actions/movieAction";
-import * as actions from "../actions/movieAction";
-import { movieDto } from "../types";
+} from "../actions/movieAction"
+import * as actions from "../actions/movieAction"
+import { movieDto } from "../types/types"
 
-export type MovieAction = ActionType<typeof actions>;
+export type MovieAction = ActionType<typeof actions>
 export type MovieTypes = {
   movie: {
-    list: movieDto[] | null;
-    loading: boolean;
-    error: Error | null;
-  };
-};
+    list: movieDto[] | null
+    loading: boolean
+    error: Error | null
+  }
+}
 
 const initialState: MovieTypes = {
   movie: {
@@ -22,7 +22,7 @@ const initialState: MovieTypes = {
     loading: false,
     error: null,
   },
-};
+}
 
 const movies = createReducer<MovieTypes, MovieAction>(initialState, {
   [GET_MOVIE]: (state) => ({
@@ -49,6 +49,6 @@ const movies = createReducer<MovieTypes, MovieAction>(initialState, {
       error: action.payload,
     },
   }),
-});
+})
 
-export default movies;
+export default movies
