@@ -1,4 +1,4 @@
-import { getUserInfoAsync, GET_USER_INFO } from "../actions/githubAction"
+import { getUserInfoAsync, GET_USER_INFO } from "./github.action"
 import { getUserInfo } from "../../utils/api/github"
 import { GithubInfo } from "../types/dto"
 import { call, put, takeEvery } from "redux-saga/effects"

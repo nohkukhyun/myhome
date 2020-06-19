@@ -1,19 +1,19 @@
-import React, { useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { RootState } from "../../store/rootReducer";
-import { getUserInfoAsync } from "../../store/github/actions/githubAction";
-import GitUserFormWrap from "../../components/GithubAllComponents/GitUserFormWrap";
+import React, { useEffect } from "react"
+import { useSelector, useDispatch } from "react-redux"
+import { RootState } from "../../store/rootReducer"
+import { getUserInfoAsync } from "../../store/github/github.action"
+import GitUserFormWrap from "../../components/GithubAllComponents/GitUserFormWrap"
 
 function GitUserInfoContainer() {
-  const dispatch = useDispatch();
+  const dispatch = useDispatch()
   const { loading, data, error } = useSelector(
     (state: RootState) => state.github.userInfo
-  );
+  )
 
   const handleSearchName = (username: string) => {
-    console.log({ username });
-    dispatch(getUserInfoAsync.request(username));
-  };
+    console.log({ username })
+    dispatch(getUserInfoAsync.request(username))
+  }
 
   // console.log({ loading, data, error })
 
@@ -23,7 +23,7 @@ function GitUserInfoContainer() {
       {error && <p>error</p>}
       <GitUserFormWrap info={data} handleSearch={handleSearchName} />
     </>
-  );
+  )
 }
 
-export default GitUserInfoContainer;
+export default GitUserInfoContainer

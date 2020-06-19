@@ -1,10 +1,12 @@
 import { combineReducers } from "redux"
-import github from "./reducers/githubReducer"
-import movies from "./reducers/movie.reducer"
+import github from "./github/github.reducer"
+import movies from "./movie/movie.reducer"
+import counter from "./counter/counte.reducer"
 
 const rootReducer = combineReducers({
   github,
   movies,
+  counter,
 })
 
 export default rootReducer

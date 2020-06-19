@@ -1,4 +1,4 @@
-import * as actions from "../actions/githubAction"
+import * as actions from "../github/github.action"
 import { ActionType } from "typesafe-actions"
 import { GithubInfo } from "../types/dto"
 

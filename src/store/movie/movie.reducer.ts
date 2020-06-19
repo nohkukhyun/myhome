@@ -1,10 +1,6 @@
 import { createReducer, ActionType } from "typesafe-actions"
-import {
-  GET_MOVIE,
-  GET_MOVIE_FAILURE,
-  GET_MOVIE_SUCCESS,
-} from "../actions/movieAction"
-import * as actions from "../actions/movieAction"
+import { GET_MOVIE, GET_MOVIE_FAILURE, GET_MOVIE_SUCCESS } from "./movie.action"
+import * as actions from "./movie.action"
 import { movieDto } from "../types/types"
 
 export type MovieAction = ActionType<typeof actions>

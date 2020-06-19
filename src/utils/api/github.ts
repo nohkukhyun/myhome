@@ -1,5 +1,5 @@
 import axios from "axios"
-import { GithubInfo } from "../../store/github/types/dto"
+import { GithubInfo } from "../../store/types/dto"
 
 export async function getUserInfo(username: string) {
   const res = await axios.get<GithubInfo>(
