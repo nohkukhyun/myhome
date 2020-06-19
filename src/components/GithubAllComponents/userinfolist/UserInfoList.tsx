@@ -1,10 +1,10 @@
-import React from "react"
-import { GithubInfo } from "../../../store/types/dto"
+import React from "react";
+import { GithubInfo } from "../../../store/types/gitdto";
 
 type UserInfoListProps = {
-  name: string | null
-  bio: string | null
-}
+  name: string | null;
+  bio: string | null;
+};
 
 function UserInfoList(info: UserInfoListProps) {
   return (
@@ -14,7 +14,7 @@ function UserInfoList(info: UserInfoListProps) {
         <li>{info.bio}</li>
       </ul>
     </div>
-  )
+  );
 }
 
-export default UserInfoList
+export default UserInfoList;
