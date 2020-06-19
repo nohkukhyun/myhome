@@ -1,5 +1,4 @@
 import { createAsyncAction } from "typesafe-actions";
-import { movieDto } from "../types/movieTypes";
 import { AxiosError } from "axios";
 
 export const GET_MOVIE = "GET_MOVIE";

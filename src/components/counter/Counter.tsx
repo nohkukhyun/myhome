@@ -1,11 +1,11 @@
-import React from "react"
+import React from "react";
 
 type CounterProps = {
-  count: number
-  handleIncrease: () => void
-  handleDecrease: () => void
-  handleDiff: (payload: number) => void
-}
+  count: number;
+  handleIncrease: () => void;
+  handleDecrease: () => void;
+  handleDiff: (payload: number) => void;
+};
 
 function Counter({
   count,
@@ -16,11 +16,11 @@ function Counter({
   return (
     <div>
       <p>{count}</p>
-      <button onClick={() => handleIncrease}>+</button>
-      <button onClick={() => handleDecrease}>-</button>
+      <button onClick={handleIncrease}>+</button>
+      <button onClick={handleDecrease}>-</button>
       <button onClick={() => handleDiff(count)}>?</button>
     </div>
-  )
+  );
 }
 
-export default Counter
+export default Counter;
