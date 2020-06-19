@@ -1,11 +1,5 @@
-import {
-  INCREASE_NUMBER,
-  DECREASE_NUMBER,
-  DIFF_NUMBER,
-  increaseNumber,
-  decreaseNumber,
-  diffNumber,
-} from "./counter.action"
+import { INCREASE_NUMBER, DECREASE_NUMBER, DIFF_NUMBER } from "./counter.action"
+import * as actions from "./counter.action"
 
 type CounterState = {
   count: number
@@ -16,9 +10,9 @@ const initialState: CounterState = {
 }
 
 type CounterAction =
-  | ReturnType<typeof increaseNumber>
-  | ReturnType<typeof decreaseNumber>
-  | ReturnType<typeof diffNumber>
+  | ReturnType<typeof actions.increaseNumber>
+  | ReturnType<typeof actions.decreaseNumber>
+  | ReturnType<typeof actions.diffNumber>
 
 function counter(state: CounterState = initialState, action: CounterAction) {
   switch (action.type) {

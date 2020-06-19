@@ -12,7 +12,7 @@ const Root: React.FC = () => (
       <Route path="/git" component={GitUserInfoContainer} />
       <Route path="/movie" component={Movie} />
       <Route path="/count" component={Counter} />
-      <Route path="/memo" /> */}
+      <Route path="/memo" />
       <Redirect path="*" to="/" />
     </Switch>
   </BrowserRouter>
