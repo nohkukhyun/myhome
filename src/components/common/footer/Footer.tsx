@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 const FooterWrap = styled.div`
   width: 100%;
@@ -38,7 +39,9 @@ const Imog = styled.svg`
 function Footer() {
   return (
     <FooterWrap>
-      <Title>About</Title>
+      <Link to="/about">
+        <Title>About</Title>
+      </Link>
       <Title>
         <Imog
           className="imog"

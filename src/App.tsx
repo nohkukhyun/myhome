@@ -30,7 +30,6 @@ function App() {
       <GlobalStyle />
       <DropAnimation />
       <Root />
-      <Footer />
     </div>
   );
 }
