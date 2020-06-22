@@ -1,9 +1,9 @@
 import React from "react";
 import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
 import GitUserInfoContainer from "../containers/gituserinfo/GitUserInfoContainer";
-import Main from "../containers/main/Main";
 import Movie from "../containers/movie/Movie";
 import CounterContainer from "../containers/counter";
+import Main from "../containers/main/Main";
 
 const Root: React.FC = () => (
   <BrowserRouter>
