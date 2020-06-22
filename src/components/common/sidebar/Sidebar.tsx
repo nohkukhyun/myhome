@@ -18,7 +18,7 @@ const SidebarWrapContents = styled.div`
 const SidebarWrapLogo = styled.div`
   font-weight: bold;
   color: #eb4559;
-  font-size: 1.2rem;
+  font-size: 1.5rem;
 `;
 
 const SidebarWrapWork = styled.div`

@@ -6,6 +6,7 @@ import CounterContainer from "../containers/counter";
 import MainContainer from "../containers/main/MainContainer";
 import Work from "../containers/work/WorkContainer";
 import Sidebar from "../components/common/sidebar";
+import Footer from "../components/common/footer";
 
 type historyProps = {
   history: History;

@@ -27,7 +27,7 @@ const TextWrap = styled.div`
   }
   h2:nth-child(2) {
     color: #eb4559;
-    animation: wave 4s ease-in-out infinite;
+    animation: wave 3s ease-in-out infinite;
   }
   @keyframes wave {
     0%,

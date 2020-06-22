@@ -3,6 +3,7 @@ import "./App.css";
 import Root from "./routes";
 import { createGlobalStyle } from "styled-components";
 import DropAnimation from "./components/common/ui/DropAnimation";
+import Footer from "./components/common/footer";
 
 const GlobalStyle = createGlobalStyle`
   body{
@@ -29,6 +30,7 @@ function App() {
       <GlobalStyle />
       <DropAnimation />
       <Root />
+      <Footer />
     </div>
   );
 }

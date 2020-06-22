@@ -9,7 +9,7 @@ const DropAnimationWrap = styled.div`
   position: absolute;
   z-index: 99999;
   left: 0;
-  animation: Move 2s 0.1s ease-in-out;
+  animation: Move 2s 0.1s ease-out;
   background-color: #eb4559;
   top: -100%;
   overflow-y: hidden;
