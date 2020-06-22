@@ -1,4 +1,6 @@
 import React, { useEffect } from "react";
+import Layout from "../../components/work/Layout";
+import MainContents from "../../components/work/maincontents";
 import { useDispatch, useSelector } from "react-redux";
 import {
   slideAnimationStart,
@@ -6,18 +8,20 @@ import {
 } from "../../store/animation/slide/slide.action";
 import { RootState } from "../../store/rootReducer";
 
-type MainProps = {
+type WorkProps = {
   history?: History | any;
 };
 
-type prevProps = {
-  prevProps: () => void;
+type historyProps = {
+  pathname?: string;
+  url?: string;
 };
 
-function Home({ history }: MainProps) {
+function WorkContainer({ history }: WorkProps) {
   const dispatch = useDispatch();
   const { status } = useSelector((state: RootState) => state.slide);
 
+  //animation start
   useEffect(() => {
     dispatch(slideAnimationStart());
   }, [dispatch]);
@@ -28,7 +32,11 @@ function Home({ history }: MainProps) {
     }, 2200);
   }
 
-  return <div></div>;
+  return (
+    <Layout>
+      <MainContents />
+    </Layout>
+  );
 }
 
-export default Home;
+export default WorkContainer;

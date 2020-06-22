@@ -1,8 +1,8 @@
 import {
-  slideAnimationSuccess,
-  SLIDE_ANIMATION_SUCCESS,
-  slideAnimationFailure,
-  SLIDE_ANIMATION_FAILURE,
+  slideAnimationStart,
+  SLIDE_ANIMATION_START,
+  slideAnimationFinish,
+  SLIDE_ANIMATION_FINISH,
 } from "./slide.action";
 
 type SlideState = {
@@ -14,22 +14,22 @@ const initialState: SlideState = {
 };
 
 type SlideAction =
-  | ReturnType<typeof slideAnimationSuccess>
-  | ReturnType<typeof slideAnimationFailure>;
+  | ReturnType<typeof slideAnimationStart>
+  | ReturnType<typeof slideAnimationFinish>;
 
 function slide(state: SlideState = initialState, action: SlideAction) {
   switch (action.type) {
-    case SLIDE_ANIMATION_SUCCESS: {
+    case SLIDE_ANIMATION_START: {
       return {
         ...state,
         status: true,
       };
     }
 
-    case SLIDE_ANIMATION_FAILURE: {
+    case SLIDE_ANIMATION_FINISH: {
       return {
         ...state,
-        status: state.status,
+        status: false,
       };
     }
 

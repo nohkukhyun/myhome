@@ -9,12 +9,17 @@ const GlobalStyle = createGlobalStyle`
     padding:0;
     margin:0;
     overflow: hidden;
+    background-color: #dae1e7;
   }
   h1,h2,h3,h4,h5,h6{
     margin:0;
   }
   ul,li{
     margin:0;
+  }
+  a{
+    text-decoration:none;
+    color:#333;
   }
 `;
 
