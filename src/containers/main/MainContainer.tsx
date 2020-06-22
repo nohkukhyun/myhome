@@ -26,7 +26,7 @@ function MainContainer({ history }: MainProps) {
   if (status) {
     setTimeout(() => {
       dispatch(slideAnimationFinish());
-    }, 2100);
+    }, 2000);
   }
 
   return <Main />;
