@@ -29,7 +29,7 @@ function WorkContainer({ history }: WorkProps) {
   if (status) {
     setTimeout(() => {
       dispatch(slideAnimationFinish());
-    }, 2200);
+    }, 2100);
   }
 
   return (

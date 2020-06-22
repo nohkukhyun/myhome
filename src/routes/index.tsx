@@ -3,7 +3,7 @@ import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
 import GitUserInfoContainer from "../containers/gituserinfo/GitUserInfoContainer";
 import Movie from "../containers/movie/Movie";
 import CounterContainer from "../containers/counter";
-import Main from "../containers/main/Main";
+import MainContainer from "../containers/main/MainContainer";
 import Work from "../containers/work/WorkContainer";
 import Sidebar from "../components/common/sidebar";
 
@@ -16,7 +16,12 @@ const Root = ({ history }: historyProps) => (
     <BrowserRouter>
       <Sidebar />
       <Switch>
-        <Route path="/" exact={true} component={Main} history={history} />
+        <Route
+          path="/"
+          exact={true}
+          component={MainContainer}
+          history={history}
+        />
         <Route path="/git" component={GitUserInfoContainer} />
         <Route path="/movie" component={Movie} />
         <Route path="/count" component={CounterContainer} />

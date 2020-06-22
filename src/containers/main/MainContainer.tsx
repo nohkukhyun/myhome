@@ -5,6 +5,7 @@ import {
   slideAnimationFinish,
 } from "../../store/animation/slide/slide.action";
 import { RootState } from "../../store/rootReducer";
+import Main from "../../components/main";
 
 type MainProps = {
   history?: History | any;
@@ -14,7 +15,7 @@ type prevProps = {
   prevProps: () => void;
 };
 
-function Home({ history }: MainProps) {
+function MainContainer({ history }: MainProps) {
   const dispatch = useDispatch();
   const { status } = useSelector((state: RootState) => state.slide);
 
@@ -25,10 +26,10 @@ function Home({ history }: MainProps) {
   if (status) {
     setTimeout(() => {
       dispatch(slideAnimationFinish());
-    }, 2200);
+    }, 2100);
   }
 
-  return <div></div>;
+  return <Main />;
 }
 
-export default Home;
+export default MainContainer;
