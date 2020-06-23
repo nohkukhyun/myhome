@@ -34,6 +34,7 @@ function AboutContainer({ history }: AboutProps) {
   }, [dispatch]);
 
   const handleSubmitName = (name: string) => {
+    if (name === "") return;
     dispatch(getUserInfoAsync.request(name));
   };
 
