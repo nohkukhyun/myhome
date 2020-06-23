@@ -39,13 +39,11 @@ function AboutContainer({ history }: AboutProps) {
 
   const handleChangeName = (e: React.ChangeEvent<HTMLInputElement>) => {
     let names = e.target.value;
-    console.log({ names });
     setNames(names);
   };
 
   return (
     <About
-      history={history}
       userInfo={userInfo}
       handleSubmitName={handleSubmitName}
       handleChangeName={handleChangeName}

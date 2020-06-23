@@ -12,7 +12,8 @@ const Text = styled.h2`
   position: absolute;
   font-size: 8em;
   text-align: center;
-  top: calc(50% - 150px);
+  top: ${(props: ParallaxProps) =>
+    props?.userInfo?.data?.name ? "calc(50% - 250px)" : "calc(50% - 150px)"};
   width: 100%;
   &.small {
     font-size: 3rem;

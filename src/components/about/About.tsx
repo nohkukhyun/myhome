@@ -3,7 +3,6 @@ import Parallax from "../common/ui/Parallax";
 import styled from "styled-components";
 
 type AboutProps = {
-  history?: History;
   userInfo?: object | any;
   handleSubmitName: (name: string) => void;
   handleChangeName: (e: React.ChangeEvent<HTMLInputElement>) => void;
@@ -35,7 +34,6 @@ const Button = styled.button`
 `;
 
 function About({
-  history,
   userInfo,
   handleSubmitName,
   handleChangeName,
