@@ -1,10 +1,11 @@
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import About from "../../components/about/About";
 import { useDispatch, useSelector } from "react-redux";
 import {
   slideAnimationStart,
   slideAnimationFinish,
 } from "../../store/animation/slide/slide.action";
+import { getUserInfoAsync } from "../../store/github/github.action";
 import { RootState } from "../../store/rootReducer";
 
 type AboutProps = {
@@ -14,6 +15,8 @@ type AboutProps = {
 function AboutContainer({ history }: AboutProps) {
   const dispatch = useDispatch();
   const { status } = useSelector((state: RootState) => state.slide);
+  const { userInfo } = useSelector((state: RootState) => state.github);
+  const [names, setNames] = useState("");
 
   //animation start
   useEffect(() => {
@@ -26,7 +29,28 @@ function AboutContainer({ history }: AboutProps) {
     }, 2100);
   }
 
-  return <About history={history} />;
+  useEffect(() => {
+    dispatch(getUserInfoAsync.request("nohkukhyun"));
+  }, [dispatch]);
+
+  const handleSubmitName = (name: string) => {
+    if (name === "") return;
+    dispatch(getUserInfoAsync.request(name));
+  };
+
+  const handleChangeName = (e: React.ChangeEvent<HTMLInputElement>) => {
+    let names = e.target.value;
+    setNames(names);
+  };
+
+  return (
+    <About
+      userInfo={userInfo}
+      handleSubmitName={handleSubmitName}
+      handleChangeName={handleChangeName}
+      names={names}
+    />
+  );
 }
 
 export default AboutContainer;

@@ -11,7 +11,7 @@ const MainWrap = styled.div`
 function Main() {
   return (
     <MainWrap>
-      <Parallax />
+      <Parallax title={"WELCOME :)"} />
     </MainWrap>
   );
 }

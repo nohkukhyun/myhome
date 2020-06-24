@@ -12,8 +12,18 @@ const Text = styled.h2`
   position: absolute;
   font-size: 8em;
   text-align: center;
-  top: calc(50% - 150px);
+  top: ${(props: ParallaxProps) =>
+    props?.userInfo?.data?.name ? "calc(50% - 250px)" : "calc(50% - 150px)"};
   width: 100%;
+  &.small {
+    font-size: 3rem;
+    font-weight: normal;
+  }
+`
+
+const InfoText = styled.p`
+  font-size: 2.5rem;
+  color: #eb4559;
 `
 
 const TextWrap = styled.div`
@@ -90,7 +100,12 @@ const TextWrap = styled.div`
   }
 `
 
-function Parallax() {
+type ParallaxProps = {
+  title?: string
+  userInfo?: object | any
+}
+
+function Parallax({ title, userInfo }: ParallaxProps) {
   const parallax = (e: MouseEvent) => {
     const ele: NodeList = document.querySelectorAll(".layer")
 
@@ -107,11 +122,51 @@ function Parallax() {
     document.addEventListener("mousemove", parallax)
   })
 
+  const info = () => {
+    if (userInfo?.data?.name !== "") {
+      let text = userInfo?.data?.bio?.replace(/\n/g, "<br/>")
+      return (
+        <>
+          <Text className="layer small">
+            <InfoText dangerouslySetInnerHTML={{ __html: text }} />
+          </Text>
+        </>
+      )
+    }
+  }
+
+  const emptyInfo = () => {
+    if (userInfo?.error?.name === "Error") {
+      return (
+        <>
+          <Text className="layer small">
+            <InfoText>
+              Github의 등록되어있는 이름이 아닙니다.{" "}
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="40"
+                height="40"
+                viewBox="0 0 24 24"
+                fill="#eb4559"
+              >
+                <path d="M12 2c5.514 0 10 4.486 10 10s-4.486 10-10 10-10-4.486-10-10 4.486-10 10-10zm0-2c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm4 17h-8v-2h8v2zm-.499-6.296l-1.298 1.296-1.203-1.204 1.298-1.296-1.298-1.296 1.203-1.204 1.298 1.296 1.296-1.296 1.203 1.204-1.297 1.296 1.297 1.296-1.202 1.204-1.297-1.296zm-7 0l-1.298 1.296-1.203-1.204 1.298-1.296-1.298-1.296 1.203-1.204 1.298 1.296 1.296-1.296 1.203 1.204-1.297 1.296 1.297 1.296-1.202 1.204-1.297-1.296z" />
+              </svg>{" "}
+            </InfoText>
+          </Text>
+        </>
+      )
+    }
+  }
+
+  const userInfos = info()
+  const errorInfos = emptyInfo()
+
   return (
     <ParallaxWrap>
       <TextWrap>
-        <Text className="layer">WELCOME :)</Text>
-        <Text className="layer line">WELCOME :)</Text>
+        <Text className="layer">{title}</Text>
+        <Text className="layer line">{title}</Text>
+        {userInfo?.data !== null ? userInfos : errorInfos}
       </TextWrap>
     </ParallaxWrap>
   )

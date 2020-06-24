@@ -4,11 +4,12 @@ import { Link } from "react-router-dom"
 
 const FooterWrap = styled.div`
   width: 100%;
-  position: relative;
+  position: fixed;
   height: 80px;
   line-height: 80px;
   display: flex;
   align-items: center;
+  bottom: 0;
 `
 
 const Title = styled.p`
