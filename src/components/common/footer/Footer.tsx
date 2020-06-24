@@ -1,6 +1,6 @@
-import React from "react";
-import styled from "styled-components";
-import { Link } from "react-router-dom";
+import React from "react"
+import styled from "styled-components"
+import { Link } from "react-router-dom"
 
 const FooterWrap = styled.div`
   width: 100%;
@@ -9,12 +9,15 @@ const FooterWrap = styled.div`
   line-height: 80px;
   display: flex;
   align-items: center;
-`;
+`
 
 const Title = styled.p`
   font-size: 1.2rem;
   font-weight: bold;
   color: #eb4559;
+  a {
+    color: #eb4559;
+  }
   &:nth-child(1) {
     flex: 1;
     padding-left: 20px;
@@ -28,20 +31,20 @@ const Title = styled.p`
     padding-right: 20px;
     text-align: right;
   }
-`;
+`
 
 const Imog = styled.svg`
   fill: #eb4559;
   width: 30px;
   height: 30px;
-`;
+`
 
 function Footer() {
   return (
     <FooterWrap>
-      <Link to="/about">
-        <Title>About</Title>
-      </Link>
+      <Title>
+        <Link to="/about">About</Link>
+      </Title>
       <Title>
         <Imog
           className="imog"
@@ -53,7 +56,7 @@ function Footer() {
       </Title>
       <Title>Contact</Title>
     </FooterWrap>
-  );
+  )
 }
 
-export default Footer;
+export default Footer

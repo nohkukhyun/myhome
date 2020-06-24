@@ -1,12 +1,12 @@
-import React, { useEffect } from "react";
-import styled from "styled-components";
+import React, { useEffect } from "react"
+import styled from "styled-components"
 
 const ParallaxWrap = styled.div`
   position: absolute;
   height: 100vh;
   width: 100%;
   overflow: hidden;
-`;
+`
 
 const Text = styled.h2`
   position: absolute;
@@ -14,7 +14,7 @@ const Text = styled.h2`
   text-align: center;
   top: calc(50% - 150px);
   width: 100%;
-`;
+`
 
 const TextWrap = styled.div`
   display: flex;
@@ -88,24 +88,24 @@ const TextWrap = styled.div`
       );
     }
   }
-`;
+`
 
 function Parallax() {
   const parallax = (e: MouseEvent) => {
-    const ele: HTMLElement | any = document.querySelectorAll(".layer");
+    const ele: NodeList = document.querySelectorAll(".layer")
 
     if (ele) {
       ele.forEach((data: any) => {
-        let x = (window.innerWidth - e.pageX * 10) / 100;
-        let y = (window.innerHeight - e.pageY * 10) / 100;
-        data.style.transform = `translate(${x}px, ${y}px)`;
-      });
+        let x = (window.innerWidth - e.pageX * 10) / 100
+        let y = (window.innerHeight - e.pageY * 10) / 100
+        data.style.transform = `translate(${x}px, ${y}px)`
+      })
     }
-  };
+  }
 
   useEffect(() => {
-    document.addEventListener("mousemove", parallax);
-  });
+    document.addEventListener("mousemove", parallax)
+  })
 
   return (
     <ParallaxWrap>
@@ -114,7 +114,7 @@ function Parallax() {
         <Text className="layer line">WELCOME :)</Text>
       </TextWrap>
     </ParallaxWrap>
-  );
+  )
 }
 
-export default Parallax;
+export default Parallax
