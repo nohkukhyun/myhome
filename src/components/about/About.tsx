@@ -1,19 +1,20 @@
-import React from "react";
-import Parallax from "../common/ui/Parallax";
-import styled from "styled-components";
+import React from "react"
+import Parallax from "../common/ui/Parallax"
+import styled from "styled-components"
+import Button from "../common/ui/Button"
 
 type AboutProps = {
-  userInfo?: object | any;
-  handleSubmitName: (name: string) => void;
-  handleChangeName: (e: React.ChangeEvent<HTMLInputElement>) => void;
-  names: string;
-};
+  userInfo?: object | any
+  handleSubmitName: (name: string) => void
+  handleChangeName: (e: React.ChangeEvent<HTMLInputElement>) => void
+  names: string
+}
 
 const InputBox = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-`;
+`
 
 const Input = styled.input`
   padding: 10px;
@@ -23,15 +24,7 @@ const Input = styled.input`
   background-color: #fff;
   border-radius: 10px;
   margin-right: 10px;
-`;
-
-const Button = styled.button`
-  border-radius: 10px;
-  background-color: #eb4559;
-  padding: 10px 20px;
-  border: 1px solid #eb4559;
-  color: #fff;
-`;
+`
 
 function About({
   userInfo,
@@ -39,6 +32,9 @@ function About({
   handleChangeName,
   names,
 }: AboutProps) {
+  const btnStyle = {
+    backgroundColor: "#eb4559",
+  }
   return (
     <>
       <InputBox>
@@ -47,11 +43,16 @@ function About({
           onChange={handleChangeName}
           placeholder="please your github name..."
         />
-        <Button onClick={() => handleSubmitName(names)}>Search</Button>
+        {/* <Button onClick={() => handleSubmitName(names)}>Search</Button> */}
+        <Button
+          title={`Search`}
+          backgroundColor={"#eb4559"}
+          onClick={() => handleSubmitName(names)}
+        />
       </InputBox>
       <Parallax userInfo={userInfo} />
     </>
-  );
+  )
 }
 
-export default About;
+export default About
