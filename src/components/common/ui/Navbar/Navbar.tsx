@@ -3,12 +3,12 @@ import styled from "styled-components";
 
 export type NavbarProps = {
   list?: [] | any;
-  emoji?: boolean;
+  badge?: boolean;
 };
 
 export type NavbarItemProps = {
   title: string;
-  emoji: boolean;
+  badge: boolean | string;
 };
 
 const NavbarWrap = styled.ul`
@@ -40,13 +40,6 @@ const NavbarItem = styled.li`
     }
   }
 
-  &.emoji {
-    &::after {
-      content: "";
-      position: absolute;
-    }
-  }
-
   @keyframes fadeIn {
     0% {
       opacity: 0;
@@ -54,6 +47,23 @@ const NavbarItem = styled.li`
     100% {
       opacity: 1;
     }
+  }
+`;
+
+const Badge = styled.div`
+  position: absolute;
+  top: 0px;
+  right: 0;
+  border-radius: 50%;
+  width: 14px;
+  height: 14px;
+  background-color: #db3056;
+  font-size: 8px;
+  color: #fff;
+  text-align: center;
+  span {
+    display: block;
+    margin-top: 1px;
   }
 `;
 
@@ -70,11 +80,14 @@ function Navbar({ list }: NavbarProps) {
         return (
           <NavbarItem
             key={i}
-            className={`${index === i ? "active" : ""} ${
-              data?.emoji && "emoji"
-            }`}
+            className={`${index === i ? "active" : ""}`}
             onClick={() => handleClick(i)}
           >
+            {data?.badge && (
+              <Badge>
+                <span>N</span>
+              </Badge>
+            )}
             {data?.title}
           </NavbarItem>
         );
