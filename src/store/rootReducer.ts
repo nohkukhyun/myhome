@@ -3,12 +3,14 @@ import github from "./github/github.reducer";
 import movies from "./movie/movie.reducer";
 import counter from "./counter/counte.reducer";
 import slide from "./animation/slide/slide.reducer";
+import weather from "./weather/weather.reducer";
 
 const rootReducer = combineReducers({
   github,
   movies,
   counter,
   slide,
+  weather,
 });
 
 export default rootReducer;

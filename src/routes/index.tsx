@@ -8,6 +8,7 @@ import Work from "../containers/work/WorkContainer";
 import Sidebar from "../components/common/sidebar";
 import Footer from "../components/common/footer";
 import AboutContainer from "../containers/about";
+import WeatherContainer from "../containers/weather";
 
 type historyProps = {
   history: History;
@@ -29,6 +30,7 @@ const Root = ({ history }: historyProps) => (
         <Route path="/count" component={CounterContainer} />
         <Route path="/work" component={Work} history={history} />
         <Route path="/about" component={AboutContainer} history={history} />
+        <Route path="/weather" component={WeatherContainer} history={history} />
         <Route path="/memo" />
         <Redirect path="*" to="/" />
       </Switch>

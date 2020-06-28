@@ -1,8 +1,7 @@
-import React from "react"
-// import { Button } from "@storybook/react/demo"
-import Button from "./Button"
+import React from "react";
+import Button from "./Button";
 
-export default { title: "Buttons", Component: "Button" }
+export default { title: "Buttons", Component: "Button" };
 
 // export const withText: React.FC = () => <Button>Hello Button</Button>
 
@@ -14,14 +13,20 @@ export default { title: "Buttons", Component: "Button" }
 //   </Button>
 // )
 
-export const Default: React.FC = () => (
-  <Button
-    onClick={() => ({})}
-    title={"search"}
-    backgroundColor={"#eb4559"}
-  ></Button>
-)
+export const buttons: React.FC = () => (
+  <div>
+    <Button onClick={() => ({})} title={"파트너등록하기"}></Button>
 
-export const Active: React.FC = () => (
-  <Button onClick={() => ({})} title={"search"}></Button>
-)
+    <Button onClick={() => ({})} title={"로그인"}></Button>
+
+    <Button
+      onClick={() => ({})}
+      title={"회원가입"}
+      style={{
+        color: "#00a8cc",
+        border: "1px solid #00a8cc",
+        borderRadius: "3px",
+      }}
+    ></Button>
+  </div>
+);
