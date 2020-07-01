@@ -4,6 +4,7 @@ import movies from "./movie/movie.reducer";
 import counter from "./counter/counte.reducer";
 import slide from "./animation/slide/slide.reducer";
 import weather from "./weather/weather.reducer";
+import toast from "./toast/toast.reducer";
 
 const rootReducer = combineReducers({
   github,
@@ -11,6 +12,7 @@ const rootReducer = combineReducers({
   counter,
   slide,
   weather,
+  toast,
 });
 
 export default rootReducer;

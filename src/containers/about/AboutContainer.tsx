@@ -7,6 +7,7 @@ import {
 } from "../../store/animation/slide/slide.action";
 import { getUserInfoAsync } from "../../store/github/github.action";
 import { RootState } from "../../store/rootReducer";
+import { toastShow } from "../../store/toast/toast.action";
 
 type AboutProps = {
   history?: History | any;
@@ -34,8 +35,9 @@ function AboutContainer({ history }: AboutProps) {
   }, [dispatch]);
 
   const handleSubmitName = (name: string) => {
-    if (name === "") return;
-    dispatch(getUserInfoAsync.request(name));
+    console.log("gere");
+    if (name === "") dispatch(toastShow({ message: "이름을 적어주세요" }));
+    else dispatch(getUserInfoAsync.request(name));
   };
 
   const handleChangeName = (e: React.ChangeEvent<HTMLInputElement>) => {

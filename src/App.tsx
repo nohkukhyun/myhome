@@ -1,9 +1,11 @@
 import React from "react";
+import { useSelector } from "react-redux";
 import "./App.css";
 import Root from "./routes";
 import { createGlobalStyle } from "styled-components";
 import DropAnimation from "./components/common/ui/DropAnimation";
-import Footer from "./components/common/footer";
+import Toast from "./components/common/toast";
+import { RootState } from "./store/rootReducer";
 
 const GlobalStyle = createGlobalStyle`
   body{
@@ -25,10 +27,12 @@ const GlobalStyle = createGlobalStyle`
 `;
 
 function App() {
+  const { popup } = useSelector((state: RootState) => state.toast);
   return (
     <div className="App">
       <GlobalStyle />
       <DropAnimation />
+      <Toast toast={popup} />
       <Root />
     </div>
   );
