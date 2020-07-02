@@ -7,8 +7,8 @@ function* toastShow(action: {} | any) {
     console.log({ action })
     const rs = action.payload
     yield put({ type: TOAST_SHOW, rs })
-    yield delay(3000)
-    yield put({ type: TOAST_RESET })
+    yield call(delay, 3000)
+    // yield put({ type: TOAST_RESET })
   } catch (error) {
     console.log({ error })
   }
@@ -20,4 +20,6 @@ function* toastReset() {
 
 export function* toastSaga() {
   yield takeEvery(TOAST_SHOW, toastShow)
+  // yield delay(3000)
+  yield takeEvery(TOAST_RESET, toastReset)
 }
