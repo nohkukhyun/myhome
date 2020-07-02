@@ -1,25 +1,30 @@
 // import { delay } from "redux-saga"
-import { call, put, takeEvery, delay } from "redux-saga/effects"
-import { TOAST_SHOW, TOAST_RESET } from "./toast.action"
+import { call, put, takeEvery, delay } from "redux-saga/effects";
+import { TOAST_SHOW, TOAST_RESET } from "./toast.action";
 
-function* toastShow(action: {} | any) {
-  try {
-    console.log({ action })
-    const rs = action.payload
-    yield put({ type: TOAST_SHOW, rs })
-    yield call(delay, 3000)
-    // yield put({ type: TOAST_RESET })
-  } catch (error) {
-    console.log({ error })
-  }
+export interface toastShowAction {
+  type: typeof TOAST_SHOW;
+  payload: string;
 }
 
-function* toastReset() {
-  yield put({ type: TOAST_RESET })
+//토스트 아이디
+let _id: number = 0;
+
+function* toastShow$(action: toastShowAction) {
+  const nextId: number = _id + 1;
+  _id = nextId;
+
+  const message: string = action.payload;
+
+  yield put({ type: TOAST_SHOW, payload: { id: nextId, message } });
+
+  yield delay(3000);
+
+  yield put({ type: TOAST_RESET, payload: nextId });
 }
 
 export function* toastSaga() {
-  yield takeEvery(TOAST_SHOW, toastShow)
+  yield takeEvery(TOAST_SHOW, toastShow$);
   // yield delay(3000)
-  yield takeEvery(TOAST_RESET, toastReset)
+  // yield takeEvery(TOAST_RESET, toastReset);
 }

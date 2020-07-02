@@ -1,50 +1,43 @@
-import * as toastaction from "./toast.action"
+import * as toastaction from "./toast.action";
+import { act } from "@testing-library/react";
 
-type ToastProps = {
-  popup: {
-    message?: string | any
-    show: boolean
-    count?: number | any
-  }
+export interface ToastProps {
+  message?: string;
+  index?: number;
 }
 
-const initialState: ToastProps = {
-  popup: {
-    message: "",
-    show: false,
-    count: 0,
-  },
+export interface AppState {
+  apiCalling: boolean;
+  toasts: ToastProps[];
 }
 
-export type toastActions = ReturnType<typeof toastaction.toastShow>
+const initialState: AppState = {
+  apiCalling: false,
+  toasts: [],
+};
 
-function toast(state: ToastProps = initialState, action: toastActions) {
+export type toastActions = ReturnType<typeof toastaction.toastShow>;
+
+function toast(state: AppState = initialState, action: toastActions) {
   switch (action.type) {
     case toastaction.TOAST_SHOW: {
       return {
         ...state,
-        popup: {
-          message: action.payload.message,
-          show: true,
-          count: state.popup.count + 1,
-        },
-      }
+        toasts: [...state.toasts, action.payload],
+      };
     }
 
     case toastaction.TOAST_RESET: {
+      const toastId = action.payload;
       return {
         ...state,
-        popup: {
-          message: "",
-          show: false,
-          count: state.popup.count,
-        },
-      }
+        toasts: state.toasts.filter((toast) => toast.index !== toastId),
+      };
     }
 
     default:
-      return state
+      return state;
   }
 }
 
-export default toast
+export default toast;

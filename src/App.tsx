@@ -1,11 +1,11 @@
-import React from "react"
-import { useSelector } from "react-redux"
-import "./App.css"
-import Root from "./routes"
-import { createGlobalStyle } from "styled-components"
-import DropAnimation from "./components/common/ui/DropAnimation"
-import Toast from "./components/common/toast"
-import { RootState } from "./store/rootReducer"
+import React from "react";
+import { useSelector } from "react-redux";
+import "./App.css";
+import Root from "./routes";
+import { createGlobalStyle } from "styled-components";
+import DropAnimation from "./components/common/ui/DropAnimation";
+import Toast from "./components/common/toast";
+import { RootState } from "./store/rootReducer";
 
 const GlobalStyle = createGlobalStyle`
   body{
@@ -24,17 +24,16 @@ const GlobalStyle = createGlobalStyle`
     text-decoration:none;
     color:#333;
   }
-`
+`;
 
 function App() {
-  const { popup } = useSelector((state: RootState) => state.toast)
   return (
     <div className="App">
       <GlobalStyle />
       <DropAnimation />
-      <Root toast={popup} />
+      <Root />
     </div>
-  )
+  );
 }
 
-export default App
+export default App;

@@ -2,23 +2,27 @@ import React, { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import * as S from "./toast.styled";
 
-interface ToastProps {
-  toast?: {} | any;
+export interface Toast {
+  message?: string;
+  index?: number;
 }
 
-function Toast({ toast }: ToastProps) {
-  console.log({ toast });
+interface ToastProps {
+  toasts: Toast[];
+}
+
+function Toast({ toasts }: ToastProps) {
   const [show, setShow] = useState(false);
-  const { message } = toast;
+  // const { message } = toast;
   useEffect(() => {
-    if (Object.keys(message).length > 0) setShow(true);
-  }, [message, toast]);
+    if (Object.keys(toasts).length > 0) setShow(true);
+  }, [toasts]);
 
   return (
     <S.ToastWrap>
-      <S.ToastWrapBody className={show && "show"}>
+      <S.ToastWrapBody className={"show"}>
         <S.Icon></S.Icon>
-        <S.ToastMessage>{toast?.message}</S.ToastMessage>
+        <S.ToastMessage>{toasts}</S.ToastMessage>
       </S.ToastWrapBody>
     </S.ToastWrap>
   );
