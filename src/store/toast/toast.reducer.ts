@@ -1,12 +1,12 @@
-import * as toastaction from "./toast.action";
+import * as toastaction from "./toast.action"
 
 type ToastProps = {
   popup: {
-    message?: string | any;
-    show: boolean;
-    count?: number | any;
-  };
-};
+    message?: string | any
+    show: boolean
+    count?: number | any
+  }
+}
 
 const initialState: ToastProps = {
   popup: {
@@ -14,9 +14,9 @@ const initialState: ToastProps = {
     show: false,
     count: 0,
   },
-};
+}
 
-export type toastActions = ReturnType<typeof toastaction.toastShow>;
+export type toastActions = ReturnType<typeof toastaction.toastShow>
 
 function toast(state: ToastProps = initialState, action: toastActions) {
   switch (action.type) {
@@ -24,11 +24,11 @@ function toast(state: ToastProps = initialState, action: toastActions) {
       return {
         ...state,
         popup: {
-          message: state.popup.message,
+          message: action.payload.message,
           show: true,
           count: state.popup.count + 1,
         },
-      };
+      }
     }
 
     case toastaction.TOAST_RESET: {
@@ -39,12 +39,12 @@ function toast(state: ToastProps = initialState, action: toastActions) {
           show: false,
           count: state.popup.count,
         },
-      };
+      }
     }
 
     default:
-      return state;
+      return state
   }
 }
 
-export default toast;
+export default toast
