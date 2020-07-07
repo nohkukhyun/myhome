@@ -1,21 +1,23 @@
-import React from "react";
-import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
-import GitUserInfoContainer from "../containers/gituserinfo/GitUserInfoContainer";
-import Movie from "../containers/movie/Movie";
-import CounterContainer from "../containers/counter";
-import MainContainer from "../containers/main/MainContainer";
-import Work from "../containers/work/WorkContainer";
-import Sidebar from "../components/common/sidebar";
-import Footer from "../components/common/footer";
-import AboutContainer from "../containers/about";
-import WeatherContainer from "../containers/weather";
-import Toast from "../components/common/toast";
+import React from "react"
+import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom"
+import GitUserInfoContainer from "../containers/gituserinfo/GitUserInfoContainer"
+import Movie from "../containers/movie/Movie"
+import CounterContainer from "../containers/counter"
+import MainContainer from "../containers/main/MainContainer"
+import Work from "../containers/work/WorkContainer"
+import Sidebar from "../components/common/sidebar"
+import Footer from "../components/common/footer"
+import AboutContainer from "../containers/about"
+import WeatherContainer from "../containers/weather"
+import Toast from "../components/common/toast"
 
 type historyProps = {
-  history: History;
-};
+  history: History
+  handleShowModal: () => void
+  handleCloseModal: () => void
+}
 
-const Root = ({ history }: historyProps) => (
+const Root = ({ history, handleShowModal, handleCloseModal }: historyProps) => (
   <>
     <BrowserRouter>
       <Sidebar />
@@ -26,7 +28,12 @@ const Root = ({ history }: historyProps) => (
           component={MainContainer}
           history={history}
         />
-        <Route path="/git" component={GitUserInfoContainer} />
+        <Route
+          path="/git"
+          component={GitUserInfoContainer}
+          handleShowModal={handleShowModal}
+          handleCloseModal={handleCloseModal}
+        />
         <Route path="/movie" component={Movie} />
         <Route path="/count" component={CounterContainer} />
         <Route path="/work" component={Work} history={history} />
@@ -35,10 +42,13 @@ const Root = ({ history }: historyProps) => (
         <Route path="/memo" />
         <Redirect path="*" to="/" />
       </Switch>
-      <Footer />
-      <Toast toasts={[{ message: "test" }]} />
+      <Footer
+        handleShowModal={handleShowModal}
+        handleCloseModal={handleCloseModal}
+      />
+      {/* <Toast toasts={[{ message: "test" }]} /> */}
     </BrowserRouter>
   </>
-);
+)
 
-export default Root as any;
+export default Root as any
