@@ -41,7 +41,7 @@ function AboutContainer({ history }: AboutProps) {
   }
 
   const handleSubmitName = (name: string) => {
-    if (name === "") callModal()
+    if (name === "") setOpen(true)
     else dispatch(getUserInfoAsync.request(name))
   }
 
