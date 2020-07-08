@@ -12,9 +12,10 @@ import Modal from "../../components/common/modal"
 
 type AboutProps = {
   history?: History | any
+  handleShowModal: () => void
 }
 
-function AboutContainer({ history }: AboutProps) {
+function AboutContainer({ history, handleShowModal }: AboutProps) {
   const dispatch = useDispatch()
   const { status } = useSelector((state: RootState) => state.slide)
   const { userInfo } = useSelector((state: RootState) => state.github)

@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useState, Children } from "react"
 import { useSelector } from "react-redux"
 import "./App.css"
 import Root from "./routes"
@@ -32,27 +32,17 @@ function App() {
   const [show, setShow] = useState(false)
 
   const handleShowModal = () => {
-    setShow(true)
-  }
-
-  const handleCloseModal = () => {
-    setShow(false)
+    setShow(!show)
   }
 
   return (
     <div className="App">
       <GlobalStyle />
       <DropAnimation />
-      <Root
-        handleShowModal={handleShowModal}
-        handleCloseModal={handleCloseModal}
-      />
+      <Root handleShowModal={handleShowModal} />
       {show ? (
-        <ModalPortal handleShowModal={handleShowModal}>
-          <Modal
-            handleShowModal={handleShowModal}
-            handleCloseModal={handleCloseModal}
-          />
+        <ModalPortal>
+          <Modal handleShowModal={handleShowModal} />
         </ModalPortal>
       ) : null}
     </div>

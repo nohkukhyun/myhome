@@ -37,7 +37,12 @@ const Root = ({ history, handleShowModal, handleCloseModal }: historyProps) => (
         <Route path="/movie" component={Movie} />
         <Route path="/count" component={CounterContainer} />
         <Route path="/work" component={Work} history={history} />
-        <Route path="/about" component={AboutContainer} history={history} />
+        <Route
+          path="/about"
+          component={AboutContainer}
+          history={history}
+          handleShowModal={handleShowModal}
+        />
         <Route path="/weather" component={WeatherContainer} history={history} />
         <Route path="/memo" />
         <Redirect path="*" to="/" />

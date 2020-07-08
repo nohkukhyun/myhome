@@ -3,6 +3,7 @@ import Parallax from "../common/ui/Parallax"
 import styled from "styled-components"
 import Button from "../common/ui/Button"
 import Modal from "../common/modal"
+import ModalPortal from "../../utils/modal/ModalPortal"
 
 type AboutProps = {
   userInfo?: object | any
@@ -62,10 +63,10 @@ function About({
       </InputBox>
       <Parallax userInfo={userInfo} />
       {open ? (
-        <Modal onClick={() => handleModal}>
+        <ModalPortal onClick={() => handleModal()}>
           <ModalWrap>모야</ModalWrap>
           <button onClick={() => handleModal()}>Close Modal</button>
-        </Modal>
+        </ModalPortal>
       ) : null}
     </>
   )
