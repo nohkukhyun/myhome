@@ -38,7 +38,16 @@ const PrevWrap = styled.div`
 const Title = styled.h1`
   position: absolute;
   color: #eb4559;
-  top: 20px;
+  top: -150px;
+  left: 30px;
+  z-index: 10;
+`;
+const Description = styled.p`
+  position: absolute;
+  width: auto;
+  color: #eb4559;
+  top: -100px;
+  font-size: 15px;
   left: 30px;
   z-index: 10;
 `;
@@ -98,21 +107,33 @@ function MainCenter({ history }: MainCetnerProps) {
       <NextWrap onClick={() => handeMove(1, "next")} />
       {location.pathname === "/work/1" ? (
         <>
-          <Title>WashZone</Title>
+          <Title>Drmuzy</Title>
+          <Description>
+            Position: fonrt-end 100% / Tech: React.js, Redux, Redux-Observable,
+            SCSS, styled-components
+          </Description>
           <ImageWrap>
             <img src="/images/wz-preview1.png" />
           </ImageWrap>
         </>
       ) : location.pathname === "/work/2" ? (
         <>
-          <Title>SangJa</Title>
+          <Title>WashZone</Title>
+          <Description>
+            Position: fonrt-end / 100% / Tech: Vue.js, Axios, SCSS, javascript,
+            HTML, php
+          </Description>
           <ImageWrap>
-            <img src="/images/sj-preview2.png" />
+            <img src="/images/wz-preview1.png" />
           </ImageWrap>
         </>
       ) : location.pathname === "/work/3" ? (
         <>
-          <Title>DrmuzyZone</Title>
+          <Title>SangJa</Title>
+          <Description>
+            Position: fonrt-end / 100% / Tech: jQuery, SCSS, javascript, HTML,
+            php
+          </Description>
           <ImageWrap>
             <img src="/images/sj-preview2.png" />
           </ImageWrap>
