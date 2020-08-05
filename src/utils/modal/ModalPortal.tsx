@@ -1,20 +1,29 @@
-import React, { useEffect, useState } from "react"
-import { createPortal } from "react-dom"
-import Modal from "../../components/common/modal/Modal"
+import React, { useEffect, useState } from "react";
+import { createPortal } from "react-dom";
+import Modal from "../../components/common/modal/Modal";
 
-const modalElement: JSX.Element | any = document.getElementById("modal")
+const modalElement: JSX.Element | any = document.getElementById("modal");
 function ModalPortal(children: any) {
-  const el = document.createElement("div")
+  const el = document.createElement("div");
 
   useEffect(() => {
-    modalElement.appendChild(el)
-  })
+    modalElement.appendChild(el);
+  });
 
   useEffect(() => {
-    modalElement.removeChild(el)
-  }, [el])
+    modalElement.removeChild(el);
+  }, [el]);
 
-  return createPortal(<Modal>{children}</Modal>, el)
+  const eleDom = () => {
+    if (children.length > 0) {
+      children.map((data: any, i: number) => {
+        return <Modal>{data}</Modal>;
+      });
+    }
+  };
+
+  console.log("here??", { children, el, modalElement });
+  return createPortal(<Modal>children</Modal>, modalElement);
 }
 
-export default ModalPortal
+export default ModalPortal;

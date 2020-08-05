@@ -10,10 +10,14 @@ const MainContentsWrapBody = styled.div`
   position: relative;
 `;
 
-function MainContents() {
+type MainContents = {
+  history: any | History;
+};
+
+function MainContents({ history }: MainContents) {
   return (
     <MainContentsWrapBody>
-      <MainCenter />
+      <MainCenter history={history} />
     </MainContentsWrapBody>
   );
 }

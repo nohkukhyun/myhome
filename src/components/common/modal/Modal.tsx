@@ -1,12 +1,16 @@
-import React from "react"
-import * as S from "./modal.styled"
+import React from "react";
+import * as S from "./modal.styled";
 
-function Modal({ children }: any) {
+type ModalPros = {
+  children: React.ReactNode;
+};
+
+function Modal({ children }: ModalPros) {
   return (
     <S.ModalWrap>
       <S.ModalWrapBody>{children}</S.ModalWrapBody>
     </S.ModalWrap>
-  )
+  );
 }
 
-export default Modal
+export default Modal;

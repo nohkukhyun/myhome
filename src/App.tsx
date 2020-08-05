@@ -1,13 +1,13 @@
-import React, { useState, Children } from "react"
-import { useSelector } from "react-redux"
-import "./App.css"
-import Root from "./routes"
-import { createGlobalStyle } from "styled-components"
-import DropAnimation from "./components/common/ui/DropAnimation"
-import Toast from "./components/common/toast"
-import { RootState } from "./store/rootReducer"
-import ModalPortal from "./utils/modal/ModalPortal"
-import Modal from "./components/common/modal/Modal"
+import React, { useState, Children } from "react";
+import { useSelector } from "react-redux";
+import "./App.css";
+import Root from "./routes";
+import { createGlobalStyle } from "styled-components";
+import DropAnimation from "./components/common/ui/DropAnimation";
+import Toast from "./components/common/toast";
+import { RootState } from "./store/rootReducer";
+import ModalPortal from "./utils/modal/ModalPortal";
+import Modal from "./components/common/modal/Modal";
 
 const GlobalStyle = createGlobalStyle`
   body{
@@ -26,14 +26,14 @@ const GlobalStyle = createGlobalStyle`
     text-decoration:none;
     color:#333;
   }
-`
+`;
 
 function App() {
-  const [show, setShow] = useState(false)
+  const [show, setShow] = useState(false);
 
   const handleShowModal = () => {
-    setShow(!show)
-  }
+    setShow(!show);
+  };
 
   return (
     <div className="App">
@@ -42,11 +42,11 @@ function App() {
       <Root handleShowModal={handleShowModal} />
       {show ? (
         <ModalPortal>
-          <Modal handleShowModal={handleShowModal} />
+          <Modal>afdasd</Modal>
         </ModalPortal>
       ) : null}
     </div>
-  )
+  );
 }
 
-export default App
+export default App;

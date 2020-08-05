@@ -34,7 +34,7 @@ function WorkContainer({ history }: WorkProps) {
 
   return (
     <Layout>
-      <MainContents />
+      <MainContents history={history} />
     </Layout>
   );
 }

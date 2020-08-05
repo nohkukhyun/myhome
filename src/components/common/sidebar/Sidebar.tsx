@@ -9,7 +9,7 @@ function Sidebar() {
         <Link to="/">
           <S.SidebarWrapLogo>N</S.SidebarWrapLogo>
         </Link>
-        <Link to="/work">
+        <Link to="/work/1">
           <S.SidebarWrapWork>Work</S.SidebarWrapWork>
         </Link>
       </S.SidebarWrapContents>

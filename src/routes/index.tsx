@@ -1,21 +1,21 @@
-import React from "react"
-import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom"
-import GitUserInfoContainer from "../containers/gituserinfo/GitUserInfoContainer"
-import Movie from "../containers/movie/Movie"
-import CounterContainer from "../containers/counter"
-import MainContainer from "../containers/main/MainContainer"
-import Work from "../containers/work/WorkContainer"
-import Sidebar from "../components/common/sidebar"
-import Footer from "../components/common/footer"
-import AboutContainer from "../containers/about"
-import WeatherContainer from "../containers/weather"
-import Toast from "../components/common/toast"
+import React from "react";
+import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
+import GitUserInfoContainer from "../containers/gituserinfo/GitUserInfoContainer";
+import Movie from "../containers/movie/Movie";
+import CounterContainer from "../containers/counter";
+import MainContainer from "../containers/main/MainContainer";
+import Work from "../containers/work/WorkContainer";
+import Sidebar from "../components/common/sidebar";
+import Footer from "../components/common/footer";
+import AboutContainer from "../containers/about";
+import WeatherContainer from "../containers/weather";
+import Toast from "../components/common/toast";
 
 type historyProps = {
-  history: History
-  handleShowModal: () => void
-  handleCloseModal: () => void
-}
+  history: History;
+  handleShowModal: () => void;
+  handleCloseModal: () => void;
+};
 
 const Root = ({ history, handleShowModal, handleCloseModal }: historyProps) => (
   <>
@@ -36,7 +36,7 @@ const Root = ({ history, handleShowModal, handleCloseModal }: historyProps) => (
         />
         <Route path="/movie" component={Movie} />
         <Route path="/count" component={CounterContainer} />
-        <Route path="/work" component={Work} history={history} />
+        <Route path="/work/:id" component={Work} history={history} />
         <Route
           path="/about"
           component={AboutContainer}
@@ -54,6 +54,6 @@ const Root = ({ history, handleShowModal, handleCloseModal }: historyProps) => (
       {/* <Toast toasts={[{ message: "test" }]} /> */}
     </BrowserRouter>
   </>
-)
+);
 
-export default Root as any
+export default Root as any;
