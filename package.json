@@ -58,5 +58,5 @@
     "@storybook/react": "^5.3.19",
     "remote-redux-devtools": "^0.5.16"
   },
-  "homepage": "/adress/"
+  "homepage": "./"
 }
