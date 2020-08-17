@@ -73,21 +73,15 @@ function MainCenter({ history }: MainCetnerProps) {
     setShow(true);
   };
 
-  const handeMove = (num: number, type: string) => {
-    const { location } = history;
-    console.log({ num, type });
-    if (location.pathname === "/work/1" && type === "next")
-      history.push("/work/2");
-    else if (location.pathname === "/work/1" && type === "prev")
-      history.push("/work/1");
-    else if (location.pathname === "/work/2" && type === "next")
-      history.push("/work/3");
-    else if (location.pathname === "/work/2" && type === "prev")
-      history.push("/work/1");
-    else if (location.pathname === "/work/3" && type === "next")
-      history.push("/work/4");
-    else if (location.pathname === "/work/3" && type === "prev")
-      history.push("/work/2");
+  const handleNext = (data: any) => {
+    console.log({ data });
+    if (data.id === 1) history.push("/work/2");
+    else if (data.id === 2) history.push("/work/3");
+  };
+  const handlePrev = (data: any) => {
+    if (data.id === 1) history.push("/work/1");
+    else if (data.id === 2) history.push("/work/1");
+    else if (data.id === 3) history.push("/work/2");
   };
 
   useEffect(() => {
@@ -101,46 +95,50 @@ function MainCenter({ history }: MainCetnerProps) {
   console.log(history);
   const { location } = history;
 
+  const projectList = [
+    {
+      id: 1,
+      title: "Drmuzy",
+      description: `Position: fonrt-end 100% / Tech: React.js, Redux, Redux-Observable,
+      SCSS, styled-components`,
+      url: "/work/1",
+      image: "/images/drmuzy.png",
+    },
+    {
+      id: 2,
+      title: "WashZone",
+      description: `Position: fonrt-end / 100% / Tech: Vue.js, Axios, SCSS, javascript,
+      HTML, php`,
+      url: "/work/2",
+      image: "/images/wz-preview1.png",
+    },
+    {
+      id: 3,
+      title: "SangJa",
+      description: `Position: fonrt-end / 100% / Tech: jQuery, SCSS, javascript, HTML,
+      php`,
+      url: "/work/3",
+      image: "/images/sj-preview2.png",
+    },
+  ];
+
   return (
     <MainCenterWrap id="onlyBg">
-      <PrevWrap onClick={() => handeMove(1, "prev")} />
-      <NextWrap onClick={() => handeMove(1, "next")} />
-      {location.pathname === "/work/1" ? (
-        <>
-          <Title>Drmuzy</Title>
-          <Description>
-            Position: fonrt-end 100% / Tech: React.js, Redux, Redux-Observable,
-            SCSS, styled-components
-          </Description>
-          <ImageWrap>
-            <img src="/images/wz-preview1.png" />
-          </ImageWrap>
-        </>
-      ) : location.pathname === "/work/2" ? (
-        <>
-          <Title>WashZone</Title>
-          <Description>
-            Position: fonrt-end / 100% / Tech: Vue.js, Axios, SCSS, javascript,
-            HTML, php
-          </Description>
-          <ImageWrap>
-            <img src="/images/wz-preview1.png" />
-          </ImageWrap>
-        </>
-      ) : location.pathname === "/work/3" ? (
-        <>
-          <Title>SangJa</Title>
-          <Description>
-            Position: fonrt-end / 100% / Tech: jQuery, SCSS, javascript, HTML,
-            php
-          </Description>
-          <ImageWrap>
-            <img src="/images/sj-preview2.png" />
-          </ImageWrap>
-        </>
-      ) : (
-        ""
-      )}
+      {projectList.map((data, i) => {
+        if (location.pathname === data.url) {
+          return (
+            <>
+              <Title>{data.title}</Title>
+              <Description>{data.description}</Description>
+              <ImageWrap>
+                <img src={data.image} />
+              </ImageWrap>
+              <PrevWrap onClick={() => handlePrev(data)} />
+              <NextWrap onClick={() => handleNext(data)} />
+            </>
+          );
+        }
+      })}
     </MainCenterWrap>
   );
 }

@@ -1,4 +1,4 @@
-import styled from "styled-components"
+import styled from "styled-components";
 
 export const ModalWrap = styled.div`
   width: 100%;
@@ -10,8 +10,8 @@ export const ModalWrap = styled.div`
   background-color: #333;
   /* background-color: rgba(255, 255, 255, 0.8); */
   opacity: 0.9;
-  z-index: 99999;
-`
+  z-index: 999999;
+`;
 
 export const ModalWrapBody = styled.div`
   min-width: 300px;
@@ -20,4 +20,4 @@ export const ModalWrapBody = styled.div`
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-`
+`;

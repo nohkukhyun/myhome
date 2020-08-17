@@ -4,7 +4,6 @@ export const SidebarWrap = styled.div`
   width: 100%;
   background-color: #dae1e7;
   position: relative;
-  z-index: 11;
 `;
 
 export const SidebarWrapContents = styled.div`
