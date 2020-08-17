@@ -3,7 +3,7 @@ import styled, { CSSObject } from "styled-components";
 import Modal from "../../common/modal";
 
 const MainCenterWrap = styled.div`
-  width: 75%;
+  width: 55%;
   height: 650px;
   position: absolute;
   top: 50%;
@@ -38,7 +38,7 @@ const PrevWrap = styled.div`
 const Title = styled.h1`
   position: absolute;
   color: #eb4559;
-  top: -150px;
+  top: -100px;
   left: 30px;
   z-index: 10;
 `;
@@ -46,7 +46,7 @@ const Description = styled.p`
   position: absolute;
   width: auto;
   color: #eb4559;
-  top: -100px;
+  top: -50px;
   font-size: 15px;
   left: 30px;
   z-index: 10;
@@ -54,7 +54,7 @@ const Description = styled.p`
 
 const ImageWrap = styled.div`
   position: relative;
-  width: 1024px;
+  width: 1000px;
   margin: 0 auto;
   img {
     width: 100%;
@@ -77,11 +77,16 @@ function MainCenter({ history }: MainCetnerProps) {
     console.log({ data });
     if (data.id === 1) history.push("/work/2");
     else if (data.id === 2) history.push("/work/3");
+    else if (data.id === 3) history.push("/work/4");
+    else if (data.id === 4) history.push("/work/5");
+    else if (data.id === 5) history.push("/work/5");
   };
   const handlePrev = (data: any) => {
     if (data.id === 1) history.push("/work/1");
     else if (data.id === 2) history.push("/work/1");
     else if (data.id === 3) history.push("/work/2");
+    else if (data.id === 4) history.push("/work/3");
+    else if (data.id === 5) history.push("/work/4");
   };
 
   useEffect(() => {
@@ -102,7 +107,7 @@ function MainCenter({ history }: MainCetnerProps) {
       description: `Position: fonrt-end 100% / Tech: React.js, Redux, Redux-Observable,
       SCSS, styled-components`,
       url: "/work/1",
-      image: "/images/drmuzy.png",
+      image: "/images/dr.png",
     },
     {
       id: 2,
@@ -110,7 +115,7 @@ function MainCenter({ history }: MainCetnerProps) {
       description: `Position: fonrt-end / 100% / Tech: Vue.js, Axios, SCSS, javascript,
       HTML, php`,
       url: "/work/2",
-      image: "/images/wz-preview1.png",
+      image: "/images/washzone.png",
     },
     {
       id: 3,
@@ -118,7 +123,23 @@ function MainCenter({ history }: MainCetnerProps) {
       description: `Position: fonrt-end / 100% / Tech: jQuery, SCSS, javascript, HTML,
       php`,
       url: "/work/3",
-      image: "/images/sj-preview2.png",
+      image: "/images/sangja.png",
+    },
+    {
+      id: 4,
+      title: "중소벤처기업 ",
+      description: `Position: fonrt-end / 100% / Tech: jQuery, css, javascript, HTML,
+      php`,
+      url: "/work/4",
+      image: "/images/joongso.png",
+    },
+    {
+      id: 5,
+      title: "인천상공회의소",
+      description: `Position: fonrt-end / 100% / Tech: jQuery, SCSS, javascript, HTML,
+      php`,
+      url: "/work/5",
+      image: "/images/iico.png",
     },
   ];
 
