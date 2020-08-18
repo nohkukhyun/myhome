@@ -11,6 +11,9 @@ const MainCenterWrap = styled.div`
   transform: translate(-50%, -50%);
   /* background: url("https://images.unsplash.com/photo-1592746455916-7ac99236b6d6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1868&q=80"); */
   /* background-size: 100%; */
+  @media (max-width: 500px) {
+    width: 100%;
+  }
 `;
 
 const NextWrap = styled.div`
@@ -21,6 +24,7 @@ const NextWrap = styled.div`
   height: 650px;
   cursor: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij48cGF0aCBkPSJNMjQgMTJsLTktOHY2aC0xNXY0aDE1djZ6Ii8+PC9zdmc+"),
     pointer;
+  fill: #eb4559;
   z-index: 1;
 `;
 
@@ -33,12 +37,22 @@ const PrevWrap = styled.div`
   cursor: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij48cGF0aCBkPSJNMCAxMmw5LTh2NmgxNXY0aC0xNXY2eiIvPjwvc3ZnPg=="),
     pointer;
   z-index: 1;
+  fill: #eb4559;
+`;
+
+const DescriptionWrap = styled.div`
+  position: relative;
+  z-index: 1000;
+  width: 100%;
+  @media (max-width: 500px) {
+    margin-top: 100px;
+  }
 `;
 
 const Title = styled.h1`
   position: absolute;
   color: #eb4559;
-  top: -100px;
+  top: -30px;
   left: 30px;
   z-index: 10;
 `;
@@ -46,7 +60,7 @@ const Description = styled.p`
   position: absolute;
   width: auto;
   color: #eb4559;
-  top: -50px;
+  top: 0px;
   font-size: 15px;
   left: 30px;
   z-index: 10;
@@ -54,11 +68,15 @@ const Description = styled.p`
 
 const ImageWrap = styled.div`
   position: relative;
-  width: 1000px;
+  width: 100%;
   margin: 0 auto;
   img {
     width: 100%;
     background-size: 100%;
+  }
+  @media (max-width: 500px) {
+    top: 50%;
+    transform: translateY(-80%);
   }
 `;
 
@@ -143,23 +161,32 @@ function MainCenter({ history }: MainCetnerProps) {
     },
   ];
 
+  useEffect(() => {
+    setTimeout(() => {
+      setShow(true);
+    }, 1500);
+  });
+
   return (
     <MainCenterWrap id="onlyBg">
-      {projectList.map((data, i) => {
-        if (location.pathname === data.url) {
-          return (
-            <>
-              <Title>{data.title}</Title>
-              <Description>{data.description}</Description>
-              <ImageWrap>
-                <img src={data.image} />
-              </ImageWrap>
-              <PrevWrap onClick={() => handlePrev(data)} />
-              <NextWrap onClick={() => handleNext(data)} />
-            </>
-          );
-        }
-      })}
+      {show &&
+        projectList.map((data, i) => {
+          if (location.pathname === data.url) {
+            return (
+              <>
+                <DescriptionWrap>
+                  <Title>{data.title}</Title>
+                  <Description>{data.description}</Description>
+                </DescriptionWrap>
+                <ImageWrap>
+                  <img src={data.image} />
+                </ImageWrap>
+                <PrevWrap onClick={() => handlePrev(data)} />
+                <NextWrap onClick={() => handleNext(data)} />
+              </>
+            );
+          }
+        })}
     </MainCenterWrap>
   );
 }

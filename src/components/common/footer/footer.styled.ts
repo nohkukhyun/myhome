@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const FooterWrap = styled.div`
   width: 100%;
   position: fixed;
-  height: 80px;
+  height: 100px;
   line-height: 80px;
   display: flex;
   align-items: center;
@@ -19,7 +19,7 @@ export const Title = styled.p`
   }
   &:nth-child(1) {
     flex: 1;
-    padding-left: 20px;
+    padding-left: 50px;
     text-align: left;
   }
   &:nth-child(2) {
@@ -27,7 +27,7 @@ export const Title = styled.p`
   }
   &:nth-child(3) {
     flex: 1;
-    padding-right: 20px;
+    padding-right: 50px;
     text-align: right;
   }
 `;

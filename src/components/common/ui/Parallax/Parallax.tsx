@@ -1,12 +1,12 @@
-import React, { useEffect } from "react"
-import styled from "styled-components"
+import React, { useEffect } from "react";
+import styled from "styled-components";
 
 const ParallaxWrap = styled.div`
   position: absolute;
   height: 100vh;
   width: 100%;
   overflow: hidden;
-`
+`;
 
 const Text = styled.h2`
   position: absolute;
@@ -19,12 +19,15 @@ const Text = styled.h2`
     font-size: 3rem;
     font-weight: normal;
   }
-`
+  @media (max-width: 414px) {
+    font-size: 3.6em;
+  }
+`;
 
 const InfoText = styled.p`
   font-size: 2.5rem;
   color: #eb4559;
-`
+`;
 
 const TextWrap = styled.div`
   display: flex;
@@ -34,6 +37,12 @@ const TextWrap = styled.div`
     color: transparent;
     -webkit-text-stroke: 4px #eb4559;
     text-stroke: 4px #eb4559;
+  }
+  @media (max-width: 414px) {
+    h2:nth-child(1) {
+      color: transparent;
+      -webkit-text-stroke: 2px #eb4559;
+    }
   }
   h2:nth-child(2) {
     color: #eb4559;
@@ -98,42 +107,42 @@ const TextWrap = styled.div`
       );
     }
   }
-`
+`;
 
 type ParallaxProps = {
-  title?: string
-  userInfo?: object | any
-}
+  title?: string;
+  userInfo?: object | any;
+};
 
 function Parallax({ title, userInfo }: ParallaxProps) {
   const parallax = (e: MouseEvent) => {
-    const ele: NodeList = document.querySelectorAll(".layer")
+    const ele: NodeList = document.querySelectorAll(".layer");
 
     if (ele) {
       ele.forEach((data: any) => {
-        let x = (window.innerWidth - e.pageX * 10) / 100
-        let y = (window.innerHeight - e.pageY * 10) / 100
-        data.style.transform = `translate(${x}px, ${y}px)`
-      })
+        let x = (window.innerWidth - e.pageX * 10) / 100;
+        let y = (window.innerHeight - e.pageY * 10) / 100;
+        data.style.transform = `translate(${x}px, ${y}px)`;
+      });
     }
-  }
+  };
 
   useEffect(() => {
-    document.addEventListener("mousemove", parallax)
-  })
+    document.addEventListener("mousemove", parallax);
+  });
 
   const info = () => {
     if (userInfo?.data?.name !== "") {
-      let text = userInfo?.data?.bio?.replace(/\n/g, "<br/>")
+      let text = userInfo?.data?.bio?.replace(/\n/g, "<br/>");
       return (
         <>
           <Text className="layer small">
             <InfoText dangerouslySetInnerHTML={{ __html: text }} />
           </Text>
         </>
-      )
+      );
     }
-  }
+  };
 
   const emptyInfo = () => {
     if (userInfo?.error?.name === "Error") {
@@ -154,12 +163,12 @@ function Parallax({ title, userInfo }: ParallaxProps) {
             </InfoText>
           </Text>
         </>
-      )
+      );
     }
-  }
+  };
 
-  const userInfos = info()
-  const errorInfos = emptyInfo()
+  const userInfos = info();
+  const errorInfos = emptyInfo();
 
   return (
     <ParallaxWrap>
@@ -169,7 +178,7 @@ function Parallax({ title, userInfo }: ParallaxProps) {
         {userInfo?.data !== null ? userInfos : errorInfos}
       </TextWrap>
     </ParallaxWrap>
-  )
+  );
 }
 
-export default Parallax
+export default Parallax;
