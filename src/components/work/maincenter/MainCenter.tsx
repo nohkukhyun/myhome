@@ -13,7 +13,7 @@ const MainCenterWrap = styled.div`
   /* background-size: 100%; */
   @media (max-width: 500px) {
     width: 100%;
-    height: 50%;
+    height: 65%;
   }
 `;
 
@@ -48,24 +48,20 @@ const DescriptionWrap = styled.div`
   position: relative;
   z-index: 1000;
   width: 100%;
-  @media (max-width: 500px) {
-    /* margin-top: 100px; */
-  }
 `;
 
 const Title = styled.h1`
   color: #eb4559;
-  top: -30px;
-  left: 30px;
   z-index: 10;
 `;
 const Description = styled.p`
   width: auto;
   color: #eb4559;
-  top: 0px;
   font-size: 15px;
-  left: 30px;
   z-index: 10;
+  @media (max-width: 500px) {
+    padding: 0 20px;
+  }
 `;
 
 const ImageWrap = styled.div`

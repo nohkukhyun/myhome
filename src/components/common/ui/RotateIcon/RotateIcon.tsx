@@ -13,6 +13,10 @@ const Icon = styled.div`
   left: 50%;
   transform: translate(-50%, -50%);
   animation: rotate 2s linear infinite;
+  @media (max-width: 500px) {
+    left: 45%;
+    top: 45%;
+  }
 `;
 
 const Svg = styled.svg`
@@ -25,6 +29,18 @@ const Svg = styled.svg`
     100% {
       transform: rotate(2160deg);
       width: 130px;
+    }
+  }
+  @media (max-width: 500px) {
+    @keyframes rotate {
+      0% {
+        transform: rotate(360deg);
+        width: 20px;
+      }
+      100% {
+        transform: rotate(2160deg);
+        width: 80px;
+      }
     }
   }
 `;
