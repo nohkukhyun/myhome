@@ -27,22 +27,29 @@ const Text = styled.h2`
 const InfoText = styled.p`
   font-size: 2.5rem;
   color: #eb4559;
+  @media (max-width: 414px) {
+    font-size: 1.3rem;
+    margin-top: -50px;
+    padding: 20px;
+  }
 `;
 
 const TextWrap = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 20px;
   h2:nth-child(1) {
     color: transparent;
     -webkit-text-stroke: 4px #eb4559;
     text-stroke: 4px #eb4559;
   }
-  @media (max-width: 414px) {
+  @media (max-width: 500px) {
     h2:nth-child(1) {
       color: transparent;
       -webkit-text-stroke: 2px #eb4559;
     }
+    padding: 20px;
   }
   h2:nth-child(2) {
     color: #eb4559;

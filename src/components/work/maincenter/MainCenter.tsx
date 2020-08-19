@@ -48,6 +48,7 @@ const DescriptionWrap = styled.div`
   position: relative;
   z-index: 1000;
   width: 100%;
+  margin-bottom: 20px;
 `;
 
 const Title = styled.h1`
@@ -74,7 +75,7 @@ const ImageWrap = styled.div`
   }
   @media (max-width: 500px) {
     top: 50%;
-    transform: translateY(-80%);
+    transform: translateY(-90%);
     img {
       width: 100%;
     }

@@ -14,10 +14,16 @@ type AboutProps = {
   handleModal: () => void;
 };
 
+const AboutWrap = styled.div`
+  width: 100%;
+  position: relative;
+`;
+
 const InputBox = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 20px;
 `;
 
 const Input = styled.input`
@@ -51,7 +57,7 @@ function About({
   `;
 
   return (
-    <>
+    <AboutWrap>
       <InputBox>
         <Input
           name={names}
@@ -70,7 +76,7 @@ function About({
           </Modal>
         </ModalPortal>
       ) : null}
-    </>
+    </AboutWrap>
   );
 }
 
