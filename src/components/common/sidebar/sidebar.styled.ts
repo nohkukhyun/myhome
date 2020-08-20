@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const SidebarWrap = styled.div`
   width: 100%;
-  background-color: #dae1e7;
+  /* background-color: #dae1e7; */
   position: relative;
 `;
 

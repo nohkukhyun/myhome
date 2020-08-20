@@ -13,7 +13,7 @@ const MainCenterWrap = styled.div`
   /* background-size: 100%; */
   @media (max-width: 500px) {
     width: 100%;
-    height: 65%;
+    height: 75%;
   }
 `;
 
@@ -48,7 +48,10 @@ const DescriptionWrap = styled.div`
   position: relative;
   z-index: 1000;
   width: 100%;
-  margin-bottom: 20px;
+  margin-bottom: 100px;
+  @media (max-width: 500px) {
+    margin-bottom: 30px;
+  }
 `;
 
 const Title = styled.h1`
@@ -70,14 +73,14 @@ const ImageWrap = styled.div`
   width: 100%;
   margin: 0 auto;
   img {
-    width: 1000px;
-    background-size: 100%;
+    max-width: 100%;
+    /* background-size: 100%; */
   }
   @media (max-width: 500px) {
     top: 50%;
     transform: translateY(-90%);
     img {
-      width: 100%;
+      width: 90%;
     }
   }
 `;
@@ -127,7 +130,7 @@ function MainCenter({ history }: MainCetnerProps) {
       description: `Position: fonrt-end 100% / Tech: React.js, Redux, Redux-Observable,
       SCSS, styled-components`,
       url: "/work/1",
-      image: "/images/dr.png",
+      image: "/images/drmuzy.png",
     },
     {
       id: 2,
@@ -159,7 +162,7 @@ function MainCenter({ history }: MainCetnerProps) {
       description: `Position: fonrt-end / 100% / Tech: jQuery, SCSS, javascript, HTML,
       php`,
       url: "/work/5",
-      image: "/images/iico.png",
+      image: "/images/ico.png",
     },
   ];
 
