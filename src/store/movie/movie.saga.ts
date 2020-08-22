@@ -7,7 +7,6 @@ function* getMovieSaga(action: any) {
   try {
     //api call
     const movieLists: movieDto = yield call(movieApi);
-    console.log({ movieLists });
     //store저장
     yield put(getMovieAsyncAction.success(movieLists));
   } catch (error) {

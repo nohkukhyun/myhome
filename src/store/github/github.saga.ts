@@ -10,7 +10,6 @@ function* getUserInfoSaga(action: any) {
   try {
     //api call
     const userInfo: GithubInfo = yield call(getUserInfo, payload);
-    console.log({ userInfo });
     //store에 프로필 저장
     yield put(getUserInfoAsync.success(userInfo));
   } catch (e) {

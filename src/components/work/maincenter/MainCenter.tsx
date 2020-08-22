@@ -92,12 +92,10 @@ type MainCetnerProps = {
 function MainCenter({ history }: MainCetnerProps) {
   const [show, setShow] = useState(false);
   const handleModal = () => {
-    console.log("dasdasd");
     setShow(true);
   };
 
   const handleNext = (data: any) => {
-    console.log({ data });
     if (data.id === 1) history.push("/work/2");
     else if (data.id === 2) history.push("/work/3");
     else if (data.id === 3) history.push("/work/4");
@@ -115,12 +113,10 @@ function MainCenter({ history }: MainCetnerProps) {
   useEffect(() => {
     const bg: Element | any = document.querySelector("#onlyBg");
     bg?.addEventListener("mousemove", (e: Event | any) => {
-      // console.log(bg.style.backgroundPositionX);
       bg.style.backgroundPositionX = -e.offsetX + "px";
       bg.style.backgroundPositionY = -e.offsetY + "px";
     });
   }, []);
-  console.log(history);
   const { location } = history;
 
   const projectList = [
@@ -135,7 +131,7 @@ function MainCenter({ history }: MainCetnerProps) {
     {
       id: 2,
       title: "WashZone",
-      description: `Position: fonrt-end / 100% / Tech: Vue.js, Axios, SCSS, javascript,
+      description: `Position: fonrt-end / 100% / Tech: Vue.js, VueX SCSS, javascript,
       HTML, php`,
       url: "/work/2",
       image: "/images/washzone.png",

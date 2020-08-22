@@ -22,7 +22,6 @@ function ModalPortal(children: any) {
     }
   };
 
-  console.log("here??", { children, el, modalElement });
   return createPortal(<Modal>children</Modal>, modalElement);
 }
 
