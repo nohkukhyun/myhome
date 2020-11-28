@@ -6,12 +6,12 @@ export const StylePageWrap = styled.div`
 `
 
 const fadeInUp = keyframes`
-  from {
-    transform: translate3d(0,40px,0)
-    opacity:0
+  0% {
+    transform: translateY(30px);
+    opacity:0;
   }
-  to {
-    transform:translate3d(0,0,0)
+  100% {
+    transform: translateY(0px);
     opacity:1
   }
 `
@@ -19,10 +19,8 @@ const fadeInUp = keyframes`
 export const StylePageSection = styled.div`
   position:relative;
   padding:50px;
-  .active {
-    animation-name:${fadeInUp};
-    animation-duration: 1s;
-    animation-timing-function: linear
+  &.active {
+    animation:${fadeInUp} 1s ease-in-out;
   }
 `
 

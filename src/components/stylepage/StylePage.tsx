@@ -4,16 +4,18 @@ import * as S from './stylepage.styled'
 const StylePage = () => {
 
   function textSlideAnimation(){
-    let infoTarget = document.querySelector('#info')
-    let infoTarget2 = document.querySelector('#info_two')
+    let infoTarget = document.querySelectorAll('#info')
     let windowHeight = window.innerHeight
     let scrollValue = window.scrollY
-    let infoOffsetTop:any = infoTarget?.getBoundingClientRect()?.top
-    let infoOffsetTop2 = infoTarget2?.getBoundingClientRect()?.top
-    console.log("scroll value", windowHeight,scrollValue,infoOffsetTop,infoOffsetTop2)
-    if(windowHeight > infoOffsetTop){
-      infoTarget?.classList.add('active')
-    }
+    let absolutePos = windowHeight + scrollValue
+    
+    infoTarget.forEach((data,i) => {
+      let infoOffsetTop:any = data?.getBoundingClientRect()?.top
+      console.log("scroll value", windowHeight,infoOffsetTop,absolutePos)
+      if(windowHeight >= infoOffsetTop + 100){
+        data?.classList.add('active')
+      }
+    })
   }
 
   useEffect(() => {
@@ -36,14 +38,36 @@ const StylePage = () => {
         </S.InfoTable>
       </S.StylePageSection>
 
-      <S.StylePageSection id="info_two">
-        <S.Title>Info</S.Title>
+      <S.StylePageSection id="info">
+        <S.Title>Language</S.Title>
         <S.Division></S.Division>
         <S.InfoTable>
-          <li>노국현</li>
-          <li>010-6294-8910</li>
-          <li>경기도 용인시 기흥구</li>
-          <li>geekk89@gmail.com</li>
+          <li>HTML</li>
+          <li>CSS</li>
+          <li>SCSS</li>
+          <li>Javascript</li>
+          <li>Typescript</li>
+        </S.InfoTable>
+      </S.StylePageSection>
+
+      <S.StylePageSection id="info">
+      <S.Title>Library</S.Title>
+        <S.Division></S.Division>
+        <S.InfoTable>
+          <li>React</li>
+          <li>Redux</li>
+          <li>Redux-Saga</li>
+          <li>Styled-component</li>
+        </S.InfoTable>
+      </S.StylePageSection>
+
+
+      <S.StylePageSection id="info">
+        <S.Title>Blog</S.Title>
+        <S.Division></S.Division>
+        <S.InfoTable>
+          <li>https://medium.com/geekk89</li>
+          <li>http://www.crungeek.com</li>
         </S.InfoTable>
       </S.StylePageSection>
     </S.StylePageWrap>
