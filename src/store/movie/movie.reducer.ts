@@ -6,11 +6,10 @@ import {
 } from "./movie.action";
 import * as actions from "./movie.action";
 import { movieDto } from "../types/movieTypes";
-
 export type MovieAction = ActionType<typeof actions>;
 export type MovieTypes = {
   movie: {
-    list: movieDto[] | null;
+    list: movieDto[] | null | any;
     loading: boolean;
     error: Error | null;
   };

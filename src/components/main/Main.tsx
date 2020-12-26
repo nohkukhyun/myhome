@@ -5,7 +5,7 @@ import Parallax from "../common/ui/Parallax";
 const MainWrap = styled.div`
   position: relative;
   width: 100%;
-  height: calc(100vh - 146px);
+  height: calc(100vh - 172px);
 `;
 
 function Main() {

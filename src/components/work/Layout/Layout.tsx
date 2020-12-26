@@ -7,6 +7,7 @@ const LayoutWrapbody = styled.div`
   flex-direction: column;
   justify-content: flex-start;
   overflow-y: hidden;
+  height: calc(100vh - 172px);
 `;
 
 type LayoutProps = {

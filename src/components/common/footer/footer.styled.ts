@@ -2,10 +2,9 @@ import styled from "styled-components";
 
 export const FooterWrap = styled.div`
   width: 100%;
-  position: fixed;
   height: 100px;
-  line-height: 80px;
   display: flex;
+  position: relative;
   align-items: center;
   bottom: 0;
 `;

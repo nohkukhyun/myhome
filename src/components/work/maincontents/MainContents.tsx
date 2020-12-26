@@ -6,7 +6,7 @@ const MainContentsWrapBody = styled.div`
   width: 100%;
   height: 100vh;
   background-color: #dae1e7;
-  margin-top: -66px;
+  margin-top: -72px;
   position: relative;
 `;
 

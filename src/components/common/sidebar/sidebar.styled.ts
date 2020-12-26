@@ -7,9 +7,9 @@ export const SidebarWrap = styled.div`
 `;
 
 export const SidebarWrapContents = styled.div`
-  margin: 30px 50px;
   display: flex;
   justify-content: space-between;
+  padding: 20px;
 `;
 
 export const SidebarWrapLogo = styled.div`
