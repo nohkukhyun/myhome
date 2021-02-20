@@ -12,6 +12,7 @@ import WeatherContainer from "../containers/weather";
 import Toast from "../components/common/toast";
 import stylepage from "../pages/stylepage";
 import StylePage from "../components/stylepage";
+import Memo from "../components/memo/Memo";
 
 type historyProps = {
   history: History;
@@ -46,7 +47,7 @@ const Root = ({ history, handleShowModal, handleCloseModal }: historyProps) => (
           handleShowModal={handleShowModal}
         />
         <Route path="/weather" component={WeatherContainer} history={history} />
-        <Route path="/memo" />
+        <Route path="/memo" component={Memo} />
         <Route path="/style" component={StylePage} />
         <Redirect path="*" to="/" />
       </Switch>

@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
-import styled, { CSSObject } from "styled-components";
-import Modal from "../../common/modal";
+import styled from "styled-components";
 
 const MainCenterWrap = styled.div`
   width: 55%;
@@ -91,23 +90,15 @@ type MainCetnerProps = {
 
 function MainCenter({ history }: MainCetnerProps) {
   const [show, setShow] = useState(false);
-  const handleModal = () => {
-    setShow(true);
-  };
 
   const handleNext = (data: any) => {
-    if (data.id === 1) history.push("/work/2");
-    else if (data.id === 2) history.push("/work/3");
-    else if (data.id === 3) history.push("/work/4");
-    else if (data.id === 4) history.push("/work/5");
-    else if (data.id === 5) history.push("/work/5");
+    if (projectList.length - 1 === data.id) return false;
+    history.push(`/work/${data.id + 1}`);
   };
+
   const handlePrev = (data: any) => {
-    if (data.id === 1) history.push("/work/1");
-    else if (data.id === 2) history.push("/work/1");
-    else if (data.id === 3) history.push("/work/2");
-    else if (data.id === 4) history.push("/work/3");
-    else if (data.id === 5) history.push("/work/4");
+    if (data.id === 0) return false;
+    history.push(`/work/${data.id - 1}`);
   };
 
   useEffect(() => {
@@ -121,9 +112,17 @@ function MainCenter({ history }: MainCetnerProps) {
 
   const projectList = [
     {
+      id: 0,
+      title: "Kakaopay - 스마트폰샵(KT)",
+      description: `Position: front-end 100% / Tech: React.js, Redux, Redux-Saga,
+      SCSS, styled-components`,
+      url: "/work/0",
+      image: "/images/kakaopay.png",
+    },
+    {
       id: 1,
       title: "Drmuzy",
-      description: `Position: fonrt-end 100% / Tech: React.js, Redux, Redux-Observable,
+      description: `Position: front-end 100% / Tech: React.js, Redux, Redux-Saga,
       SCSS, styled-components`,
       url: "/work/1",
       image: "/images/drmuzy.png",
@@ -131,7 +130,7 @@ function MainCenter({ history }: MainCetnerProps) {
     {
       id: 2,
       title: "WashZone",
-      description: `Position: fonrt-end / 100% / Tech: Vue.js, VueX SCSS, javascript,
+      description: `Position: front-end / 100% / Tech: Vue.js, VueX SCSS, javascript,
       HTML, php`,
       url: "/work/2",
       image: "/images/washzone.png",
@@ -139,7 +138,7 @@ function MainCenter({ history }: MainCetnerProps) {
     {
       id: 3,
       title: "SangJa",
-      description: `Position: fonrt-end / 100% / Tech: jQuery, SCSS, javascript, HTML,
+      description: `Position: front-end / 100% / Tech: jQuery, SCSS, javascript, HTML,
       php`,
       url: "/work/3",
       image: "/images/sangja.png",
@@ -147,7 +146,7 @@ function MainCenter({ history }: MainCetnerProps) {
     {
       id: 4,
       title: "중소벤처기업 ",
-      description: `Position: fonrt-end / 100% / Tech: jQuery, css, javascript, HTML,
+      description: `Position: front-end / 100% / Tech: jQuery, css, javascript, HTML,
       php`,
       url: "/work/4",
       image: "/images/joongso.png",
@@ -155,7 +154,7 @@ function MainCenter({ history }: MainCetnerProps) {
     {
       id: 5,
       title: "인천상공회의소",
-      description: `Position: fonrt-end / 100% / Tech: jQuery, SCSS, javascript, HTML,
+      description: `Position: front-end / 100% / Tech: jQuery, SCSS, javascript, HTML,
       php`,
       url: "/work/5",
       image: "/images/ico.png",
@@ -171,16 +170,17 @@ function MainCenter({ history }: MainCetnerProps) {
   return (
     <MainCenterWrap id="onlyBg">
       {show &&
+        // eslint-disable-next-line array-callback-return
         projectList.map((data, i) => {
           if (location.pathname === data.url) {
             return (
               <>
-                <DescriptionWrap>
+                <DescriptionWrap key={`projdct-${i}`}>
                   <Title>{data.title}</Title>
                   <Description>{data.description}</Description>
                 </DescriptionWrap>
                 <ImageWrap>
-                  <img src={data.image} />
+                  <img src={data.image} alt={"img"} />
                 </ImageWrap>
                 <PrevWrap onClick={() => handlePrev(data)} />
                 <NextWrap onClick={() => handleNext(data)} />
@@ -193,7 +193,3 @@ function MainCenter({ history }: MainCetnerProps) {
 }
 
 export default MainCenter;
-
-const WorkContainer = () => {
-  return <div></div>;
-};

@@ -1,11 +1,8 @@
-import React, { useState, Children } from "react";
-import { useSelector } from "react-redux";
+import React, { useState } from "react";
 import "./App.css";
 import Root from "./routes";
 import { createGlobalStyle } from "styled-components";
 import DropAnimation from "./components/common/ui/DropAnimation";
-import Toast from "./components/common/toast";
-import { RootState } from "./store/rootReducer";
 import ModalPortal from "./utils/modal/ModalPortal";
 import Modal from "./components/common/modal/Modal";
 
@@ -15,6 +12,7 @@ const GlobalStyle = createGlobalStyle`
     margin:0;
     overflow-x: hidden;
     background-color:#dae1e7;
+    user-select: none;
   }
   h1,h2,h3,h4,h5,h6{
     margin:0;
