@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { RootState } from "../../store/rootReducer";
 import { getUserInfoAsync } from "../../store/github/github.action";
