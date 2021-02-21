@@ -1,5 +1,4 @@
 import * as toastaction from "./toast.action";
-import { act } from "@testing-library/react";
 
 export interface ToastProps {
   message?: string;

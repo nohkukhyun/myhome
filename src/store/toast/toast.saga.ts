@@ -1,5 +1,5 @@
 // import { delay } from "redux-saga"
-import { call, put, takeEvery, delay } from "redux-saga/effects";
+import { put, takeEvery, delay } from "redux-saga/effects";
 import { TOAST_SHOW, TOAST_RESET } from "./toast.action";
 
 export interface toastShowAction {
@@ -8,7 +8,7 @@ export interface toastShowAction {
 }
 
 //토스트 아이디
-let _id: number = 0;
+let _id = 0;
 
 function* toastShow$(action: toastShowAction) {
   const nextId: number = _id + 1;
