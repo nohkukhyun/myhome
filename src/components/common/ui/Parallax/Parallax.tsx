@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 const ParallaxWrap = styled.div`
   position: absolute;
-  height: 100vh;
+  height: calc(100vh - 150px);
   width: 100%;
   overflow: hidden;
 `;
@@ -118,7 +118,7 @@ const TextWrap = styled.div`
 
 type ParallaxProps = {
   title?: string;
-  userInfo?: object | any;
+  userInfo?: any;
 };
 
 function Parallax({ title, userInfo }: ParallaxProps) {
@@ -127,8 +127,8 @@ function Parallax({ title, userInfo }: ParallaxProps) {
 
     if (ele) {
       ele.forEach((data: any) => {
-        let x = (window.innerWidth - e.pageX * 10) / 100;
-        let y = (window.innerHeight - e.pageY * 10) / 100;
+        const x = (window.innerWidth - e.pageX * 10) / 100;
+        const y = (window.innerHeight - e.pageY * 10) / 100;
         data.style.transform = `translate(${x}px, ${y}px)`;
       });
     }
@@ -140,7 +140,7 @@ function Parallax({ title, userInfo }: ParallaxProps) {
 
   const info = () => {
     if (userInfo?.data?.name !== "") {
-      let text = userInfo?.data?.bio?.replace(/\n/g, "<br/>");
+      const text = userInfo?.data?.bio?.replace(/\n/g, "<br/>");
       return (
         <>
           <Text className="layer small">
@@ -177,6 +177,7 @@ function Parallax({ title, userInfo }: ParallaxProps) {
   const userInfos = info();
   const errorInfos = emptyInfo();
 
+  console.log('user', userInfo)
   return (
     <ParallaxWrap>
       <TextWrap>

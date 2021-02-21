@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import Parallax from "../common/ui/Parallax";
 import styled from "styled-components";
 import Button from "../common/ui/Button";
@@ -6,7 +6,7 @@ import Modal from "../common/modal";
 import ModalPortal from "../../utils/modal/ModalPortal";
 
 type AboutProps = {
-  userInfo?: object | any;
+  userInfo?: any;
   handleSubmitName: (name: string) => void;
   handleChangeName: (e: React.ChangeEvent<HTMLInputElement>) => void;
   names: string;
@@ -44,9 +44,6 @@ function About({
   open,
   handleModal,
 }: AboutProps) {
-  const btnStyle = {
-    backgroundColor: "#eb4559",
-  };
 
   const ModalWrap = styled.div`
     border-radius: 5px;

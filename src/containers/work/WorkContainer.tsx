@@ -12,10 +12,6 @@ type WorkProps = {
   history?: History | any;
 };
 
-type historyProps = {
-  pathname?: string;
-  url?: string;
-};
 
 function WorkContainer({ history }: WorkProps) {
   const dispatch = useDispatch();

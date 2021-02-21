@@ -18,7 +18,7 @@ export const Title = styled.p`
   }
   &:nth-child(1) {
     flex: 1;
-    padding-left: 50px;
+    padding-left: 20px;
     text-align: left;
   }
   &:nth-child(2) {
@@ -26,7 +26,7 @@ export const Title = styled.p`
   }
   &:nth-child(3) {
     flex: 1;
-    padding-right: 50px;
+    padding-right: 20px;
     text-align: right;
   }
 `;
